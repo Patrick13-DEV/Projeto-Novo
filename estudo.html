@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/output.css" rel="stylesheet" />
+    <title>Inova Vida Tech</title>
+</head>
+
+<body>
+    <!-- Container principal que ocupa a tela toda com fundo azul -->
+    <div class="min-h-screen bg-sky-300 flex items-center justify-center p-4">
+        
+        <!-- Bloco do conteúdo com altura e largura responsivas -->
+        <div class="w-full max-w-md md:max-w-2xl bg-sky-400 flex flex-col justify-end rounded-2xl overflow-hidden shadow-lg">
+            
+            <!-- Caixa branca que abriga a logo e os botões -->
+            <div class="bg-white p-6 md:p-10 rounded-t-[2.5rem] flex flex-col items-center justify-center gap-6 shadow-lg w-full mt-20">
+                
+                <!-- Imagem da Logo -->
+                <div class="w-full max-w-xs md:max-w-sm flex justify-center">
+                    <img src="./assets/img/Inovavida.png" class="w-full object-contain" alt="Logo Inova Vida" />
+                </div>
+                
+                <!-- Botão 1: Cliente -->
+                <button class="w-full max-w-sm text-xl md:text-2xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                    <a class="font-poppins block w-full h-full" href="./pages/escolha/cliente.html">Cliente</a>
+                </button>
+                
+                <!-- Botão 2: Profissional -->
+                <button class="w-full max-w-sm text-xl md:text-2xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                    <a class="font-poppins block w-full h-full" href="./pages/escolha/profissional.html">Profissional da Saúde</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
