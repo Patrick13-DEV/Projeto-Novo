@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,23 +9,33 @@
 </head>
 
 <body>
-    <div class="w-screen h-screen bg-sky-300 flex items-center justify-center">
-        <div class="w-[414px] h-[896px] bg-sky-400 flex flex-col items-end justify-end">
-            <div
-                class="bg-white p-4 rounded-t-3xl flex justify-start  flex-col h-[787px] gap-4 shadow-lg pb-8 pt-20">
-                <div class="object-cover">
-                    <img src="./assets/img/Inovavida.png" class="w-full object-contain lg:w-full" alt="" />
-                </div>
-                <button
-                    class=" text-2xl w-sm rounded-full bg-sky-400 px-4 py-4 font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-                    <a class="font-poppins" href="./pages/escolha/cliente.html"> Cliente</a>
-                </button>
-                <button
-                    class=" text-2xl w-sm rounded-full bg-sky-400 px-4 py-4 font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-                    <a class="font-poppins" href="./pages/escolha/profissional.html"> Profissional da Saúde</a>
-                </button>
+    <!-- Container principal que ocupa a tela toda com fundo azul -->
+    <div class="min-h-screen bg-sky-300 flex items-center justify-center">
+
+        <!-- Card branco principal -->
+        <div
+            class=" bg-white w-full max-w-[414px] md:max-w-2xl lg:max-w-5xl p-6 md:p-10 lg:p-14
+                    rounded-[2.5rem] flex flex-col items-center  gap-6 shadow-lg">
+
+            <!-- Imagem da Logo -->
+            <div class="w-full max-w-xs md:max-w-sm lg:max-w-md flex justify-center">
+                <img src="./assets/img/Inovavida.png" class="w-full object-contain" alt="Logo Inova Vida" />
             </div>
+
+            <!-- Botão Cliente -->
+            <a href="./pages/escolha/cliente.html"
+                class="w-full max-w-sm md:max-w-md lg:max-w-lg text-center text-xl md:text-2xl lg:text-3xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                Cliente
+            </a>
+
+            <!-- Botão Profissional -->
+            <a href="./pages/escolha/profissional.html"
+                class="w-full max-w-sm md:max-w-md lg:max-w-lg text-center text-xl md:text-2xl lg:text-3xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                Profissional da Saúde
+            </a>
+
         </div>
+    </div>
     </div>
 </body>
 
