@@ -9,35 +9,58 @@
 </head>
 
 <body>
-    <div class="w-screen h-screen bg-sky-400 flex items-center justify-center ">
-        <div class="w-[414px] h-[896px] flex items-end ">
-            <div
-                class="bg-white p-4 rounded-t-3xl flex items-center justify-start flex-col h-[581px] gap-4 shadow-lg pb-8 pt-10">
-                <h1 class="text-4xl font-poppins font-semibold"> Verificação</h1>
-                <p class="text-gray-500 text-sm px-10 font-poppins form-extralight">Codigos</p>
 
-                <div class="flex gap-4">
-                    <div class="border-gray-300 rounded-sm border-3 w-[72px] h-[57px] flex items-center p text-2xl">
-                        <input class="" type="text" placeholder="">
+    <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
+
+        <div
+            class="bg-white w-full lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden lg:h-[778px]">
+
+            <div class="flex flex-col lg:flex-row h-full">
+
+                <!-- ESQUERDA -->
+                <div class="w-full lg:w-2/5 p-6 md:p-8 lg:p-10 flex flex-col justify-center items-center gap-6">
+                    <h1 class="text-4xl lg:text-5xl font-semibold font-poppins">
+                        Verificação
+                    </h1>
+
+                    <p class="text-gray-500 text-center text-sm lg:text-base">
+                        Digite o código de 4 dígitos enviado para o seu e-mail.
+                    </p>
+
+                    <!-- Inputs -->
+
+                    <div class="flex gap-4">
+                        <input maxlength="1"
+                            class="w-18 h-18 border-2 border-gray-300 rounded-md text-center text-3xl outline-none focus:border-sky-400 transition">
+                        <input maxlength="1"
+                            class="w-18 h-18 border-2 border-gray-300 rounded-md text-center text-3xl outline-none focus:border-sky-400 transition">
+                        <input maxlength="1"
+                            class="w-18 h-18 border-2 border-gray-300 rounded-md text-center text-3xl outline-none focus:border-sky-400 transition">
+                        <input maxlength="1"
+                            class="w-18 h-18 border-2 border-gray-300 rounded-md text-center text-3xl outline-none focus:border-sky-400 transition">
                     </div>
-                    <div class="border-gray-300 rounded-sm border-3 w-[72px] h-[57px] pl-3 flex items-center text-2xl">
-                        <input class="font-poppins outline-none" type="text" placeholder="">
-                    </div>
-                    <div class="border-gray-300 rounded-sm border-3 w-[72px] h-[57px] pl-4  flex items-center text-2xl">
-                        <input class="font-poppins outline-none" type="text" placeholder="">
-                    </div>
-                    <div class="border-gray-300 rounded-sm border-3 w-[72px] h-[57px] pl-3 flex items-center text-2xl">
-                        <input class="font-poppins outline-none" type="text" placeholder="">
-                    </div>
+
+                    <button
+                        class="text-2xl max-w-sm w-full rounded-full bg-sky-400 py-4 font-semibold text-white duration-300 hover:-translate-y-1 hover:bg-indigo-500">
+                        <a href="../aplicacao/dashboard.html">
+                            Verificar
+                        </a>
+                    </button>
+
+                    <a href="./cadastro.html" class="text-blue-500 text-lg">
+                        Reenviar código
+                    </a>
                 </div>
-                <button
-                    class=" text-2xl w-sm rounded-full bg-sky-400 px-4 py-4 font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-                    <a class="font-poppins" href="../indicadores/primeira.html"> Conclusão</a>
-                </button>
-                <a href="./pages/cadastro.html" class="text-blue-500 text-lg">Não tem uma conta? Cadastre-se</a>
+
+                <!-- DIREITA -->
+
+                <div class="hidden lg:flex lg:w-3/5 bg-gradient-to-br from-sky-100 to-cyan-400">
+                    <img src="../../../assets/img/cadastro.png" class="w-full h-full object-cover" alt="Verificação">
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

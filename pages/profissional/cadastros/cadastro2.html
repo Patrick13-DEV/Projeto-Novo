@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../../src/output.css" rel="stylesheet" />
     <title>Inova Vida Tech</title>
@@ -10,80 +10,61 @@
 
 <body>
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
-        <div
-            class="bg-white w-full max-w-[414px] md:max-w-lg lg:max-w-xl p-6 rounded-t-[2.5rem] md:rounded-[2.5rem] flex flex-col items-center gap-6 shadow-lg">
-            <h1 class="text-3xl md:text-xl lg:text-2xl font-poppins font-semibold">
-                Cadastre-se
-            </h1>
 
-            <!-- Campo Nome -->
-            <div class="border-gray-300 border-2 rounded-lg w-full lg:w-lg h-[50px] px-3 flex items-center gap-4">
-                <div class="bg-sky-800 w-[40px] h-[40px] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="stroke-white w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
-                    </svg>
+                <!-- Card branco principal -->
+        <div class="bg-white w-full md:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden">
+            <div class="flex flex-col lg:flex-row">
+
+                <div class="w-full lg:w-2/5 p-6 md:p-8 lg:p-10 flex flex-col justify-center items-center gap-5 lg:min-h-[778px]">
+
+                    <h1 class="text-4xl lg:text-5xl font-poppins font-semibold text-center">Cadastre-se</h1>
+
+                    <p class="text-gray-500 text-center text-sm">
+                        Complete os dados abaixo para finalizar seu cadastro.
+                    </p>
+
+                    <div
+                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
+                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        <input class="flex-1 outline-none font-poppins" placeholder="Nome Completo">
+                    </div>
+
+                    <div
+                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
+                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        <input class="flex-1 outline-none font-poppins" placeholder="Email">
+                    </div>
+
+                    <div
+                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
+                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        <input class="flex-1 outline-none font-poppins" placeholder="Telefone">
+                    </div>
+
+                    <div class="w-full max-w-md flex gap-4">
+                        <button class="flex-1 h-[76px] rounded-lg bg-sky-800 text-white font-poppins">Manhã</button>
+                        <button class="flex-1 h-[76px] rounded-lg border font-poppins">Tarde</button>
+                        <button class="flex-1 h-[76px] rounded-lg border font-poppins">Noite</button>
+                    </div>
+
+                    <div
+                        class="w-full max-w-md h-[60px] rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <p class="font-poppins text-center">Selecione o turno de atendimento</p>
+                    </div>
+
+                    <a href="./verificacao.html"
+                        class="w-full max-w-md rounded-full bg-sky-800 py-4 text-center text-white font-semibold">Cadastrar</a>
+
+                    <a href="./login.html" class="text-blue-500">Já tem uma conta? Faça login</a>
+
                 </div>
-                <input class="font-poppins outline-none w-full" type="text" placeholder="Nome Completo" />
-            </div>
 
-
-
-            <!-- Email -->
-            <div class="border-gray-300 border-2 rounded-lg w-full lg:w-lg h-[50px] px-3 flex items-center gap-4">
-                <div class="bg-sky-800 w-[40px] h-[40px] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="stroke-white w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
-                    </svg>
+                <div
+                    class="hidden lg:flex lg:w-3/5 bg-gradient-to-br from-sky-100 to-cyan-400 items-center justify-center">
+                    <img src="../../../assets/img/cadastro.png" class="w-full h-full object-cover" alt="Cadastro">
                 </div>
-                <input class="font-poppins outline-none w-full" type="text" placeholder="Nome Completo" />
+
             </div>
-
-
-
-            <!-- Email -->
-            <div class="border-gray-300 border-2 rounded-lg w-full lg:w-lg h-[50px] px-3 flex items-center gap-4">
-                <div class="bg-sky-800 w-[40px] h-[40px] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="stroke-white w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
-                    </svg>
-                </div>
-                <input class="font-poppins outline-none w-full" type="text" placeholder="Nome Completo" />
-            </div>
-
-
-            <div class="flex h-full gap-4 text-center text-2xl font-poppins">
-                <button
-                    class="bg-sky-800 text-white rounded-md w-[100px] md:w-[120px] lg:w-[130px] h-[56px] shadow-md/80   text-lg md:text-xl lg:text-2xl">
-                    <p>Manhã</p>
-                </button>
-                <button class="bg-white rounded-md w-[100px] md:w-[120px] lg:w-[130px] h-[56px] shadow-md/80 text-lg md:text-xl lg:text-2xl">
-                    <p>Tarde</p>
-                </button>
-                <button class="bg-white rounded-md w-[100px] md:w-[120px] lg:w-[130px] h-[56px] shadow-md/80 text-lg md:text-xl lg:text-2xl">
-                    <p>Noite</p>
-                </button>
-            </div>
-
-            <div
-                class="border-gray-300 rounded-full border-3 w-full md:w-full h-[60px] text-base md:text-lg lg:text-xl pl-3 gap-4 flex items-center justify-center mt-3 mb-5">
-                <p class="font-poppins ">Selecione o turno de atendimento</p>
-            </div>
-
-            <!-- Botão -->
-            <a href="./verificacao.html"
-                class="w-full rounded-full bg-sky-800 py-4 text-center text-xl md:text-lg lg:text-xl font-semibold text-white transition-all duration-300 hover:scale-103 hover:bg-indigo-500">
-                Cadastrar
-            </a>
-            <a href="./login.html"
-                class="text-blue-500 text-center text-sm md:text-lg lg:text-xl font-semibold transition-all duration-300 hover:scale-105 hover:text-indigo-500">
-                Já tem uma conta? Faça login
-            </a>
         </div>
     </div>
 </body>
