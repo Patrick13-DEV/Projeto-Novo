@@ -14,8 +14,7 @@
 
         <!-- Card branco principal -->
         <div
-            class=" bg-white w-full md:h-full max-w-[414px] md:max-w-2xl lg:max-w-5xl p-6 md:p-10 lg:p-14
-                    rounded-t-[2.5rem] md:rounded-[2.5rem] flex flex-col items-center  gap-6 shadow-lg ">
+            class=" bg-white w-full md:h-full max-w-[414px] md:max-w-2xl p-6 md:p-10 rounded-t-[2.5rem] md:rounded-[2.5rem] flex flex-col items-center  gap-6 shadow-lg ">
 
             <!-- Imagem da Logo -->
             <div class="w-full max-w-xs md:max-w-sm lg:max-w-md flex justify-center">

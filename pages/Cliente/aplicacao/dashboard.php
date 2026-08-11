@@ -10,18 +10,18 @@
 
 <body>
 
-    <div class="min-h-screen bg-sky-300 flex justify-center items-center">
+    <div class="min-h-screen bg-sky-300  md:px-6 flex items-end md:items-center justify-center">
 
-        <div class="bg-white w-full max-w-7xl md:rounded-[2.5rem] shadow-lg overflow-hidden">
-
-            <div class="flex flex-col md:flex-row">
+        <div class="w-full max-w-5xl bg-white md:rounded-[2.5rem] shadow-lg overflow-hidden">
+            <div class="p-4 sm:p-6 lg:p-4">
+                <div class="flex flex-col md:flex-row gap-6 lg:gap-8">
 
                 <!-- Lado Esquerdo -->
-                <div class="md:w-2/4 p-8 flex flex-col gap-8">
+                <div class="w-full md:w-[45%] flex flex-col gap-4">
 
                     <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div>
-                            <h1 class="text-3xl lg:text-4xl font-poppins font-semibold">
+                            <h1 class="text-2xl lg:text-3xl font-poppins font-semibold">
                                 Seja Bem-vindo, Marcelinho!
                             </h1>
 
@@ -30,10 +30,6 @@
                             </h2>
                         </div>
 
-                        <a href="../usuario/perfil.php"
-                            class="inline-flex items-center justify-center self-start rounded-full bg-sky-800 px-5 py-2.5 text-sm font-semibold text-white transition duration-300 hover:bg-sky-700">
-                            Perfil
-                        </a>
                     </div>
 
                     <!-- Pesquisa -->
@@ -154,6 +150,7 @@
 
         </div>
 
+    </div>
     </div>
 
 </body>

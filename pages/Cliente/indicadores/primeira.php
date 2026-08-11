@@ -9,9 +9,8 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8">
-        <div class="mx-auto flex min-h-[calc(100vh-2rem)] max-w-6xl items-center justify-center">
-            <div class="flex w-full flex-col overflow-hidden rounded-[2.5rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] lg:flex-row">
+    <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
+            <div class="flex w-full md:max-w-2xl lg:max-w-4xl flex-col overflow-hidden rounded-t-[2.5rem] md:rounded-[2.5rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] md:flex-row">
                 <div class="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 lg:px-10 lg:pr-12">
                     <span class="mb-4 inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700">
                         Etapa 1 · Acompanhamento
