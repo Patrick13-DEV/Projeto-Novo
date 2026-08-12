@@ -17,7 +17,7 @@
                 <div class="flex flex-col md:flex-row gap-6 lg:gap-8">
 
                 <!-- Lado Esquerdo -->
-                <div class="w-full md:w-[45%] flex flex-col gap-4">
+                <div class="w-full md:w-2/5 flex flex-col gap-4">
 
                     <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div>

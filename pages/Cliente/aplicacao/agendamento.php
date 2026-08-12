@@ -10,7 +10,7 @@
 
 <body>
     <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 md:px-6 lg:px-8 flex items-center justify-center">
-        <div class="w-full max-w-5xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] shadow-lg overflow-hidden">
+        <div class="w-full max-w-6xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] shadow-lg overflow-hidden">
             <div class="p-4 sm:p-6 lg:p-8">
                 <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
                     <div class="w-full lg:w-[55%] flex flex-col gap-4">
@@ -37,9 +37,9 @@
                             </div>
 
                             <div class="flex justify-end mt-4">
-                                <button class="font-poppins text-sm sm:text-base text-green-600 border border-green-500 rounded-md px-4 py-2 hover:bg-green-500 hover:text-white transition-colors">
+                                <a href="../../profissional/usuario/perfil.php" class="font-poppins text-sm sm:text-base text-green-600 border border-green-500 rounded-md px-4 py-2 hover:bg-green-500 hover:text-white transition-colors">
                                     Ver Perfil
-                                </button>
+                                </a>
                             </div>
                         </div>
 

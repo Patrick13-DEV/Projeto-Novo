@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8">
-        <div class="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)]">
+    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8 flex items-end md:items-center">
+        <div class="mx-auto flex w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)]">
             <div class="bg-sky-800 px-6 py-8 text-white sm:px-8 lg:px-10">
                 <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div class="max-w-3xl">
@@ -30,7 +30,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
-                    <p class="font-poppins text-gray-500">Pesquisar</p>
+                    <p class="font-poppins text-gray-500">Pesquisar Paciente</p>
                 </div>
             </div>
 

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class='min-h-screen bg-sky-300 flex items-end md:items-center justify-center'>
+    <div class='min-h-screen bg-sky-300 md:px-6 flex items-end md:items-center justify-center'>
         <div class='bg-white w-full md:max-w-6xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden'>
             <div class='p-6 md:p-10'>
                 <h1 class='text-3xl md:text-4xl font-poppins font-semibold mb-6'>Seja Bem-vindo Marcelinho!</h1>

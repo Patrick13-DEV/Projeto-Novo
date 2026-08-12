@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8">
-        <div class="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)]">
-            <div class="bg-white px-6 py-6 sm:px-8 lg:px-10">
+    <div class="min-h-screen bg-sky-300 flex items-end md:items-center px-3 py-4 sm:px-4 lg:px-8">
+        <div class="mx-auto flex w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)]">
+            <div class="bg-white px-6 py-6 sm:px-8 lg:px-10 max-w-7xl">
                 <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h1 class="text-2xl font-poppins font-semibold text-slate-800">Agendamentos</h1>
                     <a href="./dashboard.php"

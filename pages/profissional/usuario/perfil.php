@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8">
-        <div class="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] lg:flex-row">
+    <div class="min-h-screen bg-sky-300 px-3 py-4 sm:px-4 lg:px-8 flex items-end md:items-center">
+        <div class="mx-auto flex w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] lg:flex-row">
             <div class="relative overflow-hidden bg-sky-800 px-6 py-8 text-white sm:px-8 lg:w-[42%] lg:py-10">
                 <img src="../../../assets/img/transcent.png" class="absolute right-0 top-0 h-72 w-72 object-cover opacity-80" alt="" />
 
