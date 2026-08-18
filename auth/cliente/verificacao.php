@@ -13,7 +13,7 @@
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
 
         <div
-            class="bg-white w-full lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden lg:h-[778px]">
+            class="bg-white w-full lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden lg:h-[753px]">
 
             <div class="flex flex-col lg:flex-row h-full">
 
@@ -42,7 +42,7 @@
 
                     <button
                         class="text-2xl max-w-sm w-full rounded-full bg-sky-400 py-4 font-semibold text-white duration-300 hover:-translate-y-1 hover:bg-indigo-500">
-                        <a href="../indicadores/primeira.php" class="flex justify-center items-center gap-2">
+                        <a href="./indicadores/primeira.php" class="flex justify-center items-center gap-2">
                             Verificar
                         </a>
                     </button>

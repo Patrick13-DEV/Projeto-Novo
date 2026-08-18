@@ -14,51 +14,71 @@
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
 
     
-        <div class="bg-white w-full md:max-w-2xl lg:max-w-4xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden">
+        <div class="bg-white w-full lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden ">
 
             <div class="flex flex-col md:flex-row">
 
-                <form action="/InovaVida/actions/cadastro_cliente.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center" data-password-validator>
+
+                <form action="/InovaVida/actions/cadastro_cliente.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
                     <h1 class="text-4xl font-poppins font-semibold">Cadastre-se</h1>
                     <p class="text-gray-500 text-xs px-18 md:px-0 font-poppins form-extralight">Preencha com as informações necessárias</p>
 
                     <div
-                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
-                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
-                        <select name="especialidade_id" class="flex-1 outline-none font-poppins bg-transparent" required>
+                        class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
+                        <div class="bg-sky-800 size-[52px] rounded-lg flex items-center justify-center">
+                            <svg class="stroke-1 stroke-white size-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
+                        <select name="especialidade_id" class="flex-1 outline-none font-poppins bg-transparent">
                             <option value="">Selecione a especialidade</option>
                         </select>
                     </div>
 
                     <div
-                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
-                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
+                        <div class="bg-sky-800 size-[52px] rounded-lg flex items-center justify-center">
+                            <svg class="stroke-1 stroke-white size-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
                         <input class="flex-1 outline-none font-poppins bg-transparent" name="crm" placeholder="CRM / Registro" type="text">
                     </div>
 
                     <div
-                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
-                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
+                        <div class="bg-sky-800 size-[52px] rounded-lg flex items-center justify-center">
+                            <svg class="stroke-1 stroke-white size-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
                         <input class="flex-1 outline-none font-poppins bg-transparent" name="telefone" placeholder="Telefone" type="tel">
                     </div>
 
                     <div
-                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[76px] px-3 flex items-center gap-4">
-                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
+                        class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
+                        <div class="bg-sky-800 size-[52px] rounded-lg flex items-center justify-center">
+                            <svg class="stroke-1 stroke-white size-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
                         <input class="flex-1 outline-none font-poppins bg-transparent" name="valor_consulta" placeholder="Valor da consulta" type="number" min="0" step="0.01">
                     </div>
 
                     <div
-                        class="border-2 border-gray-300 rounded-sm w-full max-w-md h-[120px] px-3 py-3 flex items-start gap-4">
-                        <div class="bg-sky-800 size-[55px] rounded-lg flex items-center justify-center"></div>
-                        <textarea class="flex-1 h-full outline-none font-poppins bg-transparent resize-none" name="descricao" placeholder="Descrição profissional"></textarea>
+                        class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
+                        <div class="bg-sky-800 size-[52px] rounded-lg flex items-center justify-center">
+                            <svg class="stroke-1 stroke-white size-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" name="descricao" placeholder="Descrição profissional"></input>
                     </div>
 
-                    <button type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-400  py-4 font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
+                    <button type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-800  py-4 font-semibold text-white cursor-pointer delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
                         <span class="font-poppins">Cadastrar</span>
                     </button>
 
-                    <a href="./login.php" class="text-blue-500 text-lg">Já tem uma conta? Faça login</a>
                 </form>
 
                 <div class="hidden lg:flex lg:w-3/5 bg-gradient-to-br from-sky-100 to-cyan-400 items-center justify-center">

@@ -1,3 +1,9 @@
+<?php
+
+include_once("../../constante.php");
+
+?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -22,13 +28,13 @@
             </div>
 
             <!-- Botão Cliente -->
-            <a href="../../auth/cliente/login.php"
+            <a href="<?= ROOT_PATH ?>auth/cliente/login.php"
                 class="w-full max-w-sm md:max-w-md lg:max-w-lg text-center text-xl md:text-2xl lg:text-3xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
                 Login
             </a>
 
             <!-- Botão Profissional -->
-            <a href="../../auth/cliente/cadastro.php"
+            <a href="<?= ROOT_PATH ?>auth/profissional/login.php"
                 class="w-full max-w-sm md:max-w-md lg:max-w-lg text-center text-xl md:text-2xl lg:text-3xl rounded-full bg-sky-400 px-6 py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
                 Cadastro
             </a>

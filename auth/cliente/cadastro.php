@@ -1,3 +1,8 @@
+<?php
+
+include_once("../../constante.php");
+
+?>
 
 <!doctype html>
 <html>
@@ -17,7 +22,7 @@
 
             <div class="flex flex-col md:flex-row">
 
-                <form action="/InovaVida/actions/cadastro_cliente.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center" data-password-validator>
+                <form action="<?= ROOT_PATH ?>actions/cadastro_cliente.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center">
                     <h1 class="text-4xl font-poppins font-semibold">Cadastre-se</h1>
                     <p class="text-gray-500 text-xs px-18 md:px-0 font-poppins form-extralight">Preencha com as informações necessárias</p>
 
@@ -27,7 +32,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="text" name="nome" placeholder="Nome Completo" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="text" name="nome" placeholder="Nome Completo">
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
@@ -36,7 +41,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="email" name="email" placeholder="Email" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="email" name="email" placeholder="Email" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
@@ -45,7 +50,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="text" name="cpf" placeholder="CPF" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="text" name="cpf" placeholder="CPF" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
@@ -54,7 +59,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.125 1.125 0 0 0-.76-1.06l-4.397-1.466a1.125 1.125 0 0 0-1.175.317l-1.31 1.548a16.6 16.6 0 0 1-7.3-7.3l1.548-1.31a1.125 1.125 0 0 0 .317-1.175L7.682 2.31a1.125 1.125 0 0 0-1.06-.76H5.25A2.25 2.25 0 0 0 3 3.8v1.5" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="tel" name="telefone" placeholder="Telefone" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="tel" name="telefone" placeholder="Telefone" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 pr-3 gap-4 flex items-center text-2xl">
@@ -63,7 +68,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="password" name="senha" id="senha_cliente" data-password-input placeholder="Senha" minlength="6" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="password" name="senha" id="senha_cliente" data-password-input placeholder="Senha" minlength="6" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 pr-3 gap-4 flex items-center text-2xl">
@@ -72,14 +77,14 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="password" name="confirmar_senha" id="confirmar_senha_cliente" data-password-confirm placeholder="Confirme a Senha" minlength="6" required>
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="password" name="confirmar_senha" id="confirmar_senha_cliente" data-password-confirm placeholder="Confirme a Senha" minlength="6">
                     </div>
 
-                    <button type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-400  py-4 font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
+                    <button type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-400  py-4 font-semibold text-white cursor-pointer delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
                         <span class="font-poppins">Cadastrar</span>
                     </button>
 
-                    <a href="./login.php" class="text-blue-500 text-lg">Já tem uma conta? Faça login</a>
+                    <a href="<?= ROOT_PATH ?>auth/cliente/login.php" class="text-blue-500 text-lg">Já tem uma conta? Faça login</a>
                 </form>
 
                 <div class="hidden lg:flex lg:w-3/5 bg-gradient-to-br from-sky-100 to-cyan-400 items-center justify-center">

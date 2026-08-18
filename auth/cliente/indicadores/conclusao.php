@@ -13,40 +13,32 @@
             <div class="flex w-full md:max-w-2xl lg:max-w-4xl flex-col overflow-hidden rounded-t-[2.5rem] md:rounded-[2.5rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] md:flex-row">
                 <div class="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 lg:px-10 lg:pr-12">
                     <span class="mb-4 inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700">
-                        Etapa 3 · Pressão arterial
+                        Concluído
                     </span>
 
-                    <h1 class="text-3xl font-poppins font-semibold text-slate-800 sm:text-4xl">
-                        Pressão Arterial
-                    </h1>
+                    <h1 class="text-3xl font-poppins font-semibold text-slate-800 sm:text-4xl">Teste Concluído!</h1>
 
                     <p class="mt-4 max-w-md text-base leading-relaxed text-gray-600 sm:text-lg">
-                        Indique sua pressão arterial mais recente.
+                        O teste foi concluído com sucesso. Agradecemos pela ajuda; essas informações ficaram salvas no seu perfil e podem ser alteradas a qualquer momento.
                     </p>
 
-                    <div class="mt-6 flex items-center justify-center gap-2">
-                        <div class="h-3.5 w-3.5 rounded-full bg-sky-500"></div>
-                        <div class="h-px w-16 bg-gray-300"></div>
-                        <div class="h-3.5 w-3.5 rounded-full bg-gray-400"></div>
-                        <div class="h-px w-16 bg-gray-300"></div>
-                        <div class="h-3.5 w-3.5 rounded-full bg-gray-400"></div>
-                        <div class="h-px w-16 bg-gray-300"></div>
-                        <div class="h-3.5 w-3.5 rounded-full bg-gray-400"></div>
+                    <div class="flex flex-col items-center">
+                    <div class="mt-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10 stroke-green-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
                     </div>
 
                     <div class="mt-6 flex gap-2">
-                        <div class="h-2.5 w-7 rounded-full bg-sky-500"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
+                        <div class="h-2.5 w-2.5 rounded-full bg-sky-500"></div>
                     </div>
+                </div>
 
-                    <div class="mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-sky-500 shadow-md">
-                        <input class="w-full bg-transparent text-center text-lg font-poppins text-white outline-none" type="text" placeholder="0">
-                    </div>
-
-                    <a href="./quarta.php"
+                    <a href="../../../pages/Cliente/aplicacao/dashboard.php"
                         class="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-lg font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-indigo-500">
                         Próximo
                     </a>

@@ -24,7 +24,7 @@
                         Para ajudar os profissionais da saúde, precisamos realizar um teste com o cliente para apoiar o doutor no acompanhamento do paciente.
                     </p>
 
-                    <div class="mt-6 flex gap-2">
+                    <div class="mt-6 flex gap-2 justify-center">
                         <div class="h-2.5 w-7 rounded-full bg-sky-500"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
