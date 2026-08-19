@@ -23,7 +23,8 @@ include_once("../../constante.php");
 
             <div class="flex flex-col md:flex-row">
 
-                <form action="/InovaVida/pages/Cliente/aplicacao/dashboard.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
+                <form action="<?= ROOT_PATH ?>actions/login_usuario.php
+                " method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
 
                     <h1 class="text-4xl  font-poppins font-semibold">Faça seu Login</h1>
                     <p class="text-gray-500 text-xs px-18 md:px-0 font-poppins form-extralight">Entre com as informações cadastradas..</p>

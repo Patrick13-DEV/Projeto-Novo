@@ -19,26 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // CODIGO PARA INSERT
 
         try {
-            $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)";
-            $insert = $conexao->prepare($sql);
-            $insert->bindParam(":nome", $nome);
-            $insert->bindParam(":email", $email);
-            $insert->bindParam(":senha", $senhaCriptografada);
-
-            if ($insert->execute() && $insert->rowCount() > 0) {
-                $idUsuario = $conexao->lastInsertId();
-            } else {
-                throw new Exception("Ocorreu um erro ao cadastrar!");
-            }
-        } catch (Exception $e) {
-            $_SESSION['mensagem'] = "Ocorreu um erro ao cadastrar!";
-            $_SESSION['cor'] = 'alert-danger';
-            header("Location: " . ROOT_PATH . "auth/cliente/cadastro.php");
-            exit;
-        }
-
-        try {
-            $sql = "INSERT INTO clientes (cpf, telefone) VALUES (:cpf, :telefone)";
+            $sql = "INSERT INTO clientes (nome, email, senha, cpf, telefone) VALUES (:nome, :email, :senha, :cpf, :telefone)";
             $insert = $conexao->prepare($sql);
             $insert->bindParam(":nome", $nome);
             $insert->bindParam(":email", $email);
@@ -49,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($insert->execute() && $insert->rowCount() > 0){
                 $_SESSION['mensagem'] = "Cadastrado com Sucesso!";
                 $_SESSION['cor'] = 'alert-success';
-                header("Location: " . ROOT_PATH . "auth/cliente/login.php");
+                header("Location: " . ROOT_PATH . "auth/cliente/indicadores/primeira.php");
                 exit;
 
             } else {
