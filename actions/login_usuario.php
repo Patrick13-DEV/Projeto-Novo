@@ -1,7 +1,7 @@
 <?php
 // arquivo de conexao ao banco de dados
 include_once("../constante.php");
-include_once("../config/conexao.php");
+include_once("../service/conexao.php");
 
 
 if ($_SERVER['REQUEST_METHOD']==="POST"){

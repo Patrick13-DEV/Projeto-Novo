@@ -1,3 +1,11 @@
+<?php
+include_once("../../../constante.php");
+include_once("../../../service/conexao.php");
+include_once("../../../service/auth.php");
+?>
+
+
+
 <!doctype html>
 <html>
 
@@ -128,8 +136,17 @@
                             </div>
 
                         </div>
-
+ <div class="flex gap-4 w-full max-w-lg">
+                        <a href="<?= ROOT_PATH ?>pages/Cliente/aplicacao/usuario/perfil.php"
+                            class="w-full  bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                            Ver Perfil
+                        </a>
+                        <a href="<?= ROOT_PATH ?>actions/logout.php"
+                            class="w-full max-w-xs bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-600">
+                            Sair
+                        </a>
                     </div>
+                </div>
 
                 </div>
 

@@ -1,3 +1,9 @@
+<?php
+
+include_once("../../constante.php");
+
+?>
+
 
 <!doctype html>
 <html>
@@ -17,7 +23,8 @@
 
             <div class="flex flex-col md:flex-row">
 
-                <form action="/InovaVida/pages/Cliente/aplicacao/dashboard.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
+                <form action="<?= ROOT_PATH ?>actions/login_usuario.php
+                " method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
 
                     <h1 class="text-4xl  font-poppins font-semibold">Faça seu Login</h1>
                     <p class="text-gray-500 text-xs px-18 md:px-0 font-poppins form-extralight">Entre com as informações cadastradas..</p>
@@ -43,11 +50,11 @@
                         </button>
                     </div>
 
-                    <a  type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-800 text-center py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                    <button type="submit" class="text-2xl max-w-sm w-full rounded-full bg-sky-800 py-4 font-semibold text-white cursor-pointer transition duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
                         <span class="font-poppins">Login</span>
-                    </a>
+                    </button>
 
-                    <a href="./cadastro.php" class="text-blue-500 text-lg">Não possui uma conta? Cadastre-se</a>
+                    <a href="<?= ROOT_PATH ?>auth/profissional/cadastro.php" class="text-blue-500 text-lg">Não possui uma conta? Cadastre-se</a>
                 </form>
 
                 <div class="hidden lg:flex lg:w-3/5 bg-gradient-to-br from-sky-100 to-cyan-400 items-center justify-center">
