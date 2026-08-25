@@ -1,3 +1,10 @@
+<?php
+include_once("../../../constante.php");
+include_once("../../../service/conexao.php");
+include_once("../../../service/auth.php");
+?>
+
+
 <!doctype html>
 <html>
 

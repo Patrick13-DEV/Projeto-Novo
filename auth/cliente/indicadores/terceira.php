@@ -1,3 +1,9 @@
+<?php
+
+include_once("../../../constante.php");
+
+?>
+
 <!doctype html>
 <html>
 
@@ -11,7 +17,8 @@
 <body>
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
         <div class="flex w-full md:max-w-2xl lg:max-w-4xl flex-col overflow-hidden rounded-t-[2.5rem] md:rounded-[2.5rem] bg-white shadow-[0_20px_60px_rgba(2,132,199,0.2)] md:flex-row">
-            <div class="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 lg:px-10 lg:pr-12">
+            <form action="<?= ROOT_PATH ?>actions/cadastro_indicador.php" method="POST" class="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 lg:px-10 lg:pr-12">
+                <input type="hidden" name="tipo" value="pressao">
                 <span class="mb-4 inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700">
                     Etapa 3 · Pressão arterial
                 </span>
@@ -44,16 +51,16 @@
                     </div>
 
                     <div class="mt-6 flex h-14 w-14 rounded-full bg-sky-500 shadow-md">
-                        <input class="w-full bg-transparent text-center text-lg font-poppins text-white outline-none" type="text" placeholder="0">
+                        <input name="pressao" class="w-full bg-transparent text-center text-lg font-poppins text-white outline-none" type="text" placeholder="0">
                     </div>
                 </div>
 
 
-                <a href="./quarta.php"
-                    class="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-lg font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-indigo-500">
+
+                <button type="submit" class="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-lg font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-indigo-500">
                     Próximo
-                </a>
-            </div>
+                </button>
+            </form>
 
             <div class="flex items-center justify-center bg-gradient-to-br from-sky-100 via-cyan-50 to-white p-8 lg:w-[45%] lg:p-10">
                 <div class="rounded-[2rem] border border-sky-200 bg-white/90 p-6 shadow-lg">
