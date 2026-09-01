@@ -1,8 +1,9 @@
 <?php
-// arquivo de conexao ao banco de dados
+
+session_start();
+
 include_once("../constante.php");
 include_once("../service/conexao.php");
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -16,40 +17,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-        // CODIGO PARA INSERT
-
         try {
-            $sql = "INSERT INTO clientes (nome, email, senha, cpf, telefone) VALUES (:nome, :email, :senha, :cpf, :telefone)";
+
+            $sql = "INSERT INTO clientes (nome, email, senha, cpf, telefone)
+                    VALUES (:nome, :email, :senha, :cpf, :telefone)";
+
             $insert = $conexao->prepare($sql);
+
             $insert->bindParam(":nome", $nome);
             $insert->bindParam(":email", $email);
             $insert->bindParam(":senha", $senhaCriptografada);
             $insert->bindParam(":cpf", $cpf);
             $insert->bindParam(":telefone", $telefone);
 
-            if ($insert->execute() && $insert->rowCount() > 0){
+            if ($insert->execute() && $insert->rowCount() > 0) {
+
+                $cliente_id = $conexao->lastInsertId();
+
+                $_SESSION['cliente_id'] = $cliente_id;
+
                 $_SESSION['mensagem'] = "Cadastrado com Sucesso!";
                 $_SESSION['cor'] = 'alert-success';
+
                 header("Location: " . ROOT_PATH . "auth/cliente/indicadores/primeira.php");
                 exit;
 
             } else {
+
                 throw new Exception("Ocorreu um erro ao cadastrar!");
             }
 
         } catch (Exception $e) {
+
             $_SESSION['mensagem'] = "Ocorreu um erro ao cadastrar / Usuario ja Cadastrado!";
             $_SESSION['cor'] = 'alert-danger';
+
             header("Location: " . ROOT_PATH . "auth/cliente/cadastro.php");
             exit;
 
         } finally {
+
             unset($conexao);
         }
 
     } else {
+
         $_SESSION['mensagem'] = "Obrigatório preencher todos os campos";
         $_SESSION['cor'] = 'alert-danger';
+
         header("Location: " . ROOT_PATH . "auth/cliente/cadastro.php");
         exit;
     }
