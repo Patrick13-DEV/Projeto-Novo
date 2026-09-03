@@ -96,9 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $indicador_id = $_SESSION['indicador_id'];
 
             $sql = "UPDATE indicadores_saude
-                    SET pressao = :pressao
-                    WHERE id = :indicador_id
-                    AND cliente_id = :cliente_id";
+                    SET pressao = :pressao WHERE id = :indicador_id AND cliente_id = :cliente_id";
 
             $update = $conexao->prepare($sql);
 
@@ -141,22 +139,11 @@ if (isset($_POST['tipo']) && $_POST['tipo'] === 'peso_altura') {
         exit;
     }
 
-    $peso = filter_input(
-        INPUT_POST,
-        "peso",
-        FILTER_SANITIZE_SPECIAL_CHARS
-    );
+    $peso = filter_input(INPUT_POST, "peso", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $altura = filter_input(
-        INPUT_POST,
-        "altura",
-        FILTER_SANITIZE_SPECIAL_CHARS
-    );
+    $altura = filter_input(INPUT_POST, "altura", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $sql = "UPDATE clientes
-            SET peso = :peso,
-                altura = :altura
-            WHERE id = :cliente_id";
+    $sql = "UPDATE clientes SET peso = :peso, altura = :altura WHERE id = :cliente_id";
 
     $update = $conexao->prepare($sql);
 

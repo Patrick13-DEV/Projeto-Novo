@@ -50,7 +50,7 @@ include_once("../../constante.php");
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="text" name="cpf" placeholder="CPF" >
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" id="cpf" maxlength="14" type="text" name="cpf" placeholder="CPF" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 gap-4 flex items-center text-2xl">
@@ -59,7 +59,7 @@ include_once("../../constante.php");
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.125 1.125 0 0 0-.76-1.06l-4.397-1.466a1.125 1.125 0 0 0-1.175.317l-1.31 1.548a16.6 16.6 0 0 1-7.3-7.3l1.548-1.31a1.125 1.125 0 0 0 .317-1.175L7.682 2.31a1.125 1.125 0 0 0-1.06-.76H5.25A2.25 2.25 0 0 0 3 3.8v1.5" />
                             </svg>
                         </div>
-                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" type="tel" name="telefone" placeholder="Telefone" >
+                        <input class="flex-1 w-full font-poppins outline-none bg-transparent" id="telefone" maxlength="15" type="tel" name="telefone" placeholder="Telefone" >
                     </div>
 
                     <div class="border-gray-300 rounded-sm border-3 md:border-2 w-full h-[70px] pl-3 pr-3 gap-4 flex items-center text-2xl">
@@ -94,7 +94,7 @@ include_once("../../constante.php");
         </div>
     </div>
 
-    <script src="/InovaVida/assets/script.js" defer></script>
 </body>
+    <script src="<?= ROOT_PATH ?>assets/script.js" defer></script>
 
 </html>

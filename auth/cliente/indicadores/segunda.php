@@ -27,13 +27,9 @@ include_once("../../../constante.php");
                         Indicadores de Saúde
                     </h1>
 
-                    <div class="mt-6 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm">
+                    <div class="mt-6 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm h-full">
                         <input class="w-full bg-transparent text-base font-poppins text-slate-700 outline-none sm:text-lg" type="text" name="indicador" placeholder="Indicador de Saúde">
                     </div>
-
-                    <button class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-sky-500">
-                        Adicionar
-                    </button>
 
                     <div class="mt-6 flex gap-2 justify-center">
                         <div class="h-2.5 w-2.5 rounded-full bg-gray-300"></div>
