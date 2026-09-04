@@ -37,7 +37,7 @@ include_once("../../../constante.php");
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                                 </svg>
                             </div>
-                            <input class="w-full bg-transparent font-poppins text-base outline-none" type="text" name="peso"  placeholder="Peso">
+                            <input class="w-full bg-transparent font-poppins text-base outline-none" type="text" id="peso"  name="peso" placeholder="Peso" maxlength="5" inputmode="numeric">
                         </div>
 
                         <div class="flex items-center rounded-2xl border border-gray-200 bg-gray-50 px-3 py-3 shadow-sm">
@@ -46,7 +46,7 @@ include_once("../../../constante.php");
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25" />
                                 </svg>
                             </div>
-                            <input class="w-full bg-transparent font-poppins text-base outline-none" type="text" name="altura" placeholder="Altura">
+                            <input class="w-full bg-transparent font-poppins text-base outline-none" type="text" id="altura" name="altura" placeholder="Altura" maxlength="7" inputmode="numeric">
                         </div>
                     </div>
 
@@ -72,5 +72,7 @@ include_once("../../../constante.php");
         </div>
     </div>
 </body>
+
+    <script src="<?= ROOT_PATH ?>assets/script.js" defer></script>
 
 </html>

@@ -1,0 +1,24 @@
+
+    #pressaoSlider::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 56px;
+        height: 56px;
+        cursor: grab;
+    }
+
+    #pressaoSlider::-moz-range-thumb {
+        width: 56px;
+        height: 56px;
+        border: none;
+        cursor: grab;
+        background: transparent;
+    }
+
+    #pressaoSlider::-webkit-slider-runnable-track {
+        background: transparent;
+    }
+
+    #pressaoSlider::-moz-range-track {
+        background: transparent;
+    }

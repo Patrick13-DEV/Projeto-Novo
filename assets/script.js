@@ -27,3 +27,83 @@ if (telefone) {
         this.value = valor;
     });
 }
+
+
+const peso = document.getElementById('peso');
+
+if (peso) {
+
+    peso.addEventListener('input', function () {
+
+        let valor = this.value
+            .replace(/kg/g, '')
+            .replace(/\D/g, '');
+
+        if (valor !== '') {
+            this.value = valor + 'kg';
+        } else {
+            this.value = '';
+        }
+    });
+
+
+    peso.addEventListener('keydown', function (event) {
+
+        if (
+            event.key === 'Backspace' ||
+            event.key === 'Delete'
+        ) {
+
+            event.preventDefault();
+
+            this.value = '';
+
+        }
+    });
+}
+
+
+const altura = document.getElementById('altura');
+
+if (altura) {
+
+    altura.addEventListener('input', function () {
+
+        let valor = this.value
+            .replace(/m/g, '')
+            .replace(/\D/g, '');
+
+        if (valor.length > 3) {
+            valor = valor.substring(0, 3);
+        }
+
+        if (valor.length === 3) {
+
+            valor =
+                valor.substring(0, 1) +
+                ',' +
+                valor.substring(1);
+        }
+
+        if (valor !== '') {
+            this.value = valor + 'm';
+        } else {
+            this.value = '';
+        }
+    });
+
+
+    altura.addEventListener('keydown', function (event) {
+
+        if (
+            event.key === 'Backspace' ||
+            event.key === 'Delete'
+        ) {
+
+            event.preventDefault();
+
+            this.value = '';
+
+        }
+    });
+}

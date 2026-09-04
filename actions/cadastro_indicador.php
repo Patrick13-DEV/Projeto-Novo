@@ -21,51 +21,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
 
         // CADASTRO DO INDICADOR
-        if (isset($_POST['tipo']) && $_POST['tipo'] === 'indicador') {
+if (isset($_POST['tipo']) && $_POST['tipo'] === 'indicador') {
 
-            if (empty($_POST['indicador'])) {
+    if (empty($_POST['indicador'])) {
+        $_SESSION['mensagem'] = "Informe alguma observação!";
+        $_SESSION['cor'] = 'alert-danger';
 
-                $_SESSION['mensagem'] = "Informe o indicador!";
-                $_SESSION['cor'] = 'alert-danger';
+        header("Location: " . ROOT_PATH . "auth/cliente/indicadores/segunda.php");
+        exit;
+    }
 
-                header("Location: " . ROOT_PATH . "auth/cliente/indicadores/segunda.php");
-                exit;
-            }
+    $indicador = filter_input(
+        INPUT_POST,
+        "indicador",
+        FILTER_SANITIZE_SPECIAL_CHARS
+    );
 
-            $indicador = filter_input(
-                INPUT_POST,
-                "indicador",
-                FILTER_SANITIZE_SPECIAL_CHARS
-            );
+    $sql = "INSERT INTO indicadores_saude
+            (cliente_id, indicador)
+            VALUES (:cliente_id, :indicador)";
 
-            $sql = "INSERT INTO indicadores_saude 
-                    (cliente_id, indicador) 
-                    VALUES (:cliente_id, :indicador)";
+    $insert = $conexao->prepare($sql);
 
-            $insert = $conexao->prepare($sql);
+    $insert->bindParam(":cliente_id", $cliente_id);
+    $insert->bindParam(":indicador", $indicador);
 
-            $insert->bindParam(":cliente_id", $cliente_id);
-            $insert->bindParam(":indicador", $indicador);
+    if ($insert->execute()) {
 
-            if ($insert->execute()) {
+        $indicador_id = $conexao->lastInsertId();
 
-                // Pega o ID do indicador que acabou de ser criado
-                $indicador_id = $conexao->lastInsertId();
+        $_SESSION['indicador_id'] = $indicador_id;
 
-                // Guarda o ID para usar na próxima etapa
-                $_SESSION['indicador_id'] = $indicador_id;
+        $_SESSION['mensagem'] = "Informações cadastradas com sucesso!";
+        $_SESSION['cor'] = 'alert-success';
 
-                $_SESSION['mensagem'] = "Indicador cadastrado com sucesso!";
-                $_SESSION['cor'] = 'alert-success';
+        header("Location: " . ROOT_PATH . "auth/cliente/indicadores/terceira.php");
+        exit;
 
-                header("Location: " . ROOT_PATH . "auth/cliente/indicadores/terceira.php");
-                exit;
+    } else {
 
-            } else {
-
-                throw new Exception("Erro ao cadastrar o indicador!");
-            }
-        }
+        throw new Exception("Erro ao cadastrar as informações!");
+    }
+}
 
         if (isset($_POST['tipo']) && $_POST['tipo'] === 'pressao') {
 
@@ -139,17 +136,27 @@ if (isset($_POST['tipo']) && $_POST['tipo'] === 'peso_altura') {
         exit;
     }
 
-    $peso = filter_input(INPUT_POST, "peso", FILTER_SANITIZE_SPECIAL_CHARS);
+$peso = filter_input(INPUT_POST, "peso", FILTER_SANITIZE_SPECIAL_CHARS);
+$altura = filter_input(INPUT_POST, "altura", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $altura = filter_input(INPUT_POST, "altura", FILTER_SANITIZE_SPECIAL_CHARS);
+$peso = str_replace('kg', '', $peso);
+$altura = str_replace(['m', 'cm'], '', $altura);
 
-    $sql = "UPDATE clientes SET peso = :peso, altura = :altura WHERE id = :cliente_id";
+$peso = trim($peso);
+$altura = trim($altura);
 
-    $update = $conexao->prepare($sql);
+$altura = str_replace(',', '.', $altura);
 
-    $update->bindParam(":peso", $peso);
-    $update->bindParam(":altura", $altura);
-    $update->bindParam(":cliente_id", $cliente_id);
+$sql = "UPDATE clientes
+        SET peso = :peso,
+            altura = :altura
+        WHERE id = :cliente_id";
+
+$update = $conexao->prepare($sql);
+
+$update->bindParam(":peso", $peso);
+$update->bindParam(":altura", $altura);
+$update->bindParam(":cliente_id", $cliente_id);
 
     if ($update->execute()) {
 

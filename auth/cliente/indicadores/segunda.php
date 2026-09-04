@@ -28,7 +28,7 @@ include_once("../../../constante.php");
                     </h1>
 
                     <div class="mt-6 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm h-full">
-                        <input class="w-full bg-transparent text-base font-poppins text-slate-700 outline-none sm:text-lg" type="text" name="indicador" placeholder="Indicador de Saúde">
+                        <textarea class="w-full bg-transparent text-base font-poppins text-slate-700 outline-none sm:text-lg" rows="5" type="text" name="indicador" placeholder="Digite seu Indicador de Saude"></textarea>
                     </div>
 
                     <div class="mt-6 flex gap-2 justify-center">
