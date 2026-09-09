@@ -23,7 +23,7 @@ include_once("../../constante.php");
 
             <div class="flex flex-col md:flex-row">
 
-                <form action="<?= ROOT_PATH ?>actions/login_usuario.php
+                <form action="<?= ROOT_PATH ?>actions/login_cliente.php
                 " method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
 
                     <h1 class="text-4xl  font-poppins font-semibold">Faça seu Login</h1>

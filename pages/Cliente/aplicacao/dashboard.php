@@ -1,7 +1,20 @@
 <?php
+
+
 include_once("../../../constante.php");
 include_once("../../../service/conexao.php");
 include_once("../../../service/auth.php");
+
+$sql = "SELECT indicador, pressao
+        FROM indicadores_saude
+        WHERE cliente_id = :cliente_id";
+
+$stmt = $conexao->prepare($sql);
+$stmt->bindParam(":cliente_id", $idUser);
+$stmt->execute();
+
+$dadosSaude = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -28,9 +41,9 @@ include_once("../../../service/auth.php");
 
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                                <h1 class="text-2xl md:text-xl lg:text-3xl font-poppins font-semibold">
-                                    Seja Bem-vindo, Marcelinho!
-                                </h1>
+<h1 class="text-2xl md:text-xl lg:text-3xl font-poppins font-semibold">
+    Seja Bem-vindo, <?= htmlspecialchars($nomeUser) ?>!
+</h1>
 
                                 <h2 class="text-xl text-sky-500 mt-3 font-poppins">
                                     Como posso ajudar você hoje?
@@ -99,7 +112,18 @@ include_once("../../../service/auth.php");
                             <div class="bg-white p-4 border-b">
 
                                 <ul class="list-disc ps-5 font-poppins text-gray-600">
-                                    <li>Possui 15 de Pressão Arterial</li>
+<?php foreach ($dadosSaude as $dado) { ?>
+
+    <?php if (!empty($dado['pressao'])) { ?>
+
+        <li>
+            Pressão Arterial:
+            <strong><?= htmlspecialchars($dado['pressao']) ?></strong>
+        </li>
+
+    <?php } ?>
+
+<?php } ?>
                                 </ul>
 
                             </div>
@@ -113,28 +137,23 @@ include_once("../../../service/auth.php");
                             </div>
 
                             <div class="bg-white divide-y">
+<?php foreach ($dadosSaude as $dado) { ?>
 
-                                <div class="p-4">
-                                    <ul class="list-disc ps-5 font-poppins text-gray-600">
-                                        <li>TDAH</li>
-                                    </ul>
+    <?php if (!empty($dado['indicador'])) { ?>
+
+        <div class="p-4">
+            <ul class="list-disc ps-5 font-poppins text-gray-600">
+                <li>
+                    <?= htmlspecialchars($dado['indicador']) ?>
+                </li>
+            </ul>
+        </div>
+
+    <?php } ?>
+
+<?php } ?>
                                 </div>
-
-                                <div class="p-4">
-                                    <ul class="list-disc ps-5 font-poppins text-gray-600">
-                                        <li>Diabetes</li>
-                                    </ul>
-                                </div>
-
-                                <div class="p-4">
-                                    <ul class="list-disc ps-5 font-poppins text-gray-600">
-                                        <li>Hipertensão</li>
-                                    </ul>
-                                </div>
-
                             </div>
-
-                        </div>
  <div class="flex gap-4 w-full max-w-lg">
                         <a href="<?= ROOT_PATH ?>pages/Cliente/aplicacao/usuario/perfil.php"
                             class="w-full  bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">

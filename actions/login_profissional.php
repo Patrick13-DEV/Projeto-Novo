@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
         $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
 
             //CONSULTA AO BANCO DE DADOS VERIFICAR EMAIL
-            $sql = "SELECT email, senha FROM clientes WHERE email = :email";
+            $sql = "SELECT email, senha FROM profissionais WHERE email = :email";
             $select = $conexao->prepare($sql);
             $select->bindParam(':email', $email);
             if ($select->execute() && $select->rowCount()>0){
@@ -23,19 +23,19 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
                     $_SESSION['nomeUser'] = $login['nome'];
                     $_SESSION['mensagem'] = "Login realizado com sucesso!";
                     $_SESSION['cor'] = 'alert-success';
-                    header("Location: " . ROOT_PATH . "pages/cliente/aplicacao/dashboard.php");
+                    header("Location: " . ROOT_PATH . "pages/profissional/aplicacao/dashboard.php");
                     exit;
                 }
             }
             $_SESSION['mensagem'] = "Usuario/Senha Invalidos!";
             $_SESSION['cor'] = 'alert-danger';
-            header("Location: " . ROOT_PATH . "auth/cliente/login.php");
+            header("Location: " . ROOT_PATH . "auth/profissional/login.php");
             exit;
 
     } catch (\Exception $e) {
             $_SESSION['mensagem'] = "Ocorreu um erro no Banco de Dados";
             $_SESSION['cor'] = 'alert-danger';
-            header("Location: " . ROOT_PATH . "auth/cliente/login.php");
+            header("Location: " . ROOT_PATH . "auth/profissional/login.php");
             exit;
     } finally {
         unset($conexao);
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
     } else {
         $_SESSION['mensagem'] = "Obrigatório preencher todos os campos";
         $_SESSION['cor'] = 'alert-danger';
-        header("Location: " . ROOT_PATH . "auth/cliente/login.php");
+        header("Location: " . ROOT_PATH . "auth/profissinal/login.php");
         exit;
     }
 }
