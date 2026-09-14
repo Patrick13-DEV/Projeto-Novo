@@ -370,3 +370,357 @@ if (especialidadeContainer) {
 
     renderizarEspecialidades();
 }
+
+const categorias = [
+    "Cardiologia",
+    "Clínica Geral",
+    "Dermatologia",
+    "Endocrinologia",
+    "Fisioterapia",
+    "Neurologia",
+    "Nutrição",
+    "Odontologia",
+    "Ortopedia",
+    "Pediatria",
+    "Psicologia",
+    "Psiquiatria"
+];
+
+
+const listaCategorias = document.getElementById("listaCategorias");
+const pesquisaCategoria = document.getElementById("pesquisaCategoria");
+const nenhumaCategoria = document.getElementById("nenhumaCategoria");
+
+
+if (listaCategorias) {
+
+    function mostrarCategorias(lista) {
+
+        listaCategorias.innerHTML = "";
+
+        if (lista.length === 0) {
+
+            nenhumaCategoria.classList.remove("hidden");
+
+            return;
+        }
+
+        nenhumaCategoria.classList.add("hidden");
+
+
+        lista.forEach(function(categoria) {
+
+            const card = document.createElement("a");
+
+            card.href =
+                "./profissional.php?categoria=" +
+                encodeURIComponent(categoria);
+
+            card.className =
+                "border rounded-xl h-40 flex flex-col items-center justify-center " +
+                "hover:shadow-md hover:border-sky-400 hover:-translate-y-1 " +
+                "transition duration-200";
+
+
+            const quantidade =
+                profissionaisPorCategoria[categoria] ?? 0;
+
+
+            card.innerHTML = `
+
+                <div class="bg-sky-400 w-14 h-14 rounded-full flex items-center justify-center">
+
+                    <span class="text-white text-xl font-semibold">
+                        +
+                    </span>
+
+                </div>
+
+                <p class="mt-3 font-semibold font-poppins text-center">
+                    ${categoria}
+                </p>
+
+                <p class="text-sky-500 text-xs font-poppins">
+                    ${quantidade} Disponíveis
+                </p>
+
+            `;
+
+
+            listaCategorias.appendChild(card);
+
+        });
+
+    }
+
+
+    mostrarCategorias(categorias);
+
+
+    if (pesquisaCategoria) {
+
+        pesquisaCategoria.addEventListener("input", function() {
+
+            const pesquisa = this.value.toLowerCase().trim();
+
+
+            const resultado = categorias.filter(function(categoria) {
+
+                return categoria
+                    .toLowerCase()
+                    .includes(pesquisa);
+
+            });
+
+
+            mostrarCategorias(resultado);
+
+        });
+
+    }
+
+
+
+}
+
+
+/* ============================================================
+   AGENDAMENTO
+============================================================ */
+
+const dataAgendamento =
+    document.getElementById("dataAgendamento");
+
+const periodosAgendamento =
+    document.querySelectorAll(".periodo-agendamento");
+
+const horariosAgendamento =
+    document.querySelectorAll(".horario-agendamento");
+
+
+/* ============================================================
+   DATA
+============================================================ */
+
+if (dataAgendamento) {
+
+    dataAgendamento.addEventListener("change", function () {
+
+        console.log(
+            "Data selecionada:",
+            this.value
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   PERÍODO
+============================================================ */
+
+function ativarPeriodo(botao) {
+
+    periodosAgendamento.forEach(function (periodo) {
+
+        periodo.classList.remove(
+            "bg-sky-400",
+            "text-white"
+        );
+
+        periodo.classList.add(
+            "bg-white",
+            "border",
+            "border-gray-200",
+            "text-gray-700"
+        );
+
+    });
+
+
+    botao.classList.remove(
+        "bg-white",
+        "border",
+        "border-gray-200",
+        "text-gray-700"
+    );
+
+    botao.classList.add(
+        "bg-sky-400",
+        "text-white"
+    );
+
+}
+
+
+periodosAgendamento.forEach(function (botao) {
+
+    botao.addEventListener("click", function () {
+
+        ativarPeriodo(this);
+
+    });
+
+});
+
+
+/* ============================================================
+   HORÁRIO
+============================================================ */
+
+function ativarHorario(botao) {
+
+    horariosAgendamento.forEach(function (horario) {
+
+        // Não altera horários indisponíveis
+        if (horario.disabled) {
+            return;
+        }
+
+
+        horario.classList.remove(
+            "bg-sky-400",
+            "text-white"
+        );
+
+        horario.classList.add(
+            "bg-white",
+            "border",
+            "border-gray-200",
+            "text-gray-700"
+        );
+
+    });
+
+
+    botao.classList.remove(
+        "bg-white",
+        "border",
+        "border-gray-200",
+        "text-gray-700"
+    );
+
+    botao.classList.add(
+        "bg-sky-400",
+        "text-white"
+    );
+
+}
+
+
+horariosAgendamento.forEach(function (botao) {
+
+    if (botao.disabled) {
+        return;
+    }
+
+
+    botao.addEventListener("click", function () {
+
+        ativarHorario(this);
+
+    });
+
+});
+
+
+/* ============================================================
+   PROCESSAR AGENDAMENTO
+============================================================ */
+
+const processarAgendamento =
+    document.getElementById("processarAgendamento");
+
+
+if (processarAgendamento) {
+
+    processarAgendamento.addEventListener("click", function () {
+
+        const dataSelecionada =
+            dataAgendamento
+                ? dataAgendamento.value
+                : "";
+
+
+        const periodoSelecionado =
+            document.querySelector(
+                ".periodo-agendamento.bg-sky-400"
+            );
+
+
+        const horarioSelecionado =
+            document.querySelector(
+                ".horario-agendamento.bg-sky-400"
+            );
+
+
+        /* --------------------------------------------------------
+           DATA
+        -------------------------------------------------------- */
+
+        if (!dataSelecionada) {
+
+            alert(
+                "Selecione uma data para o agendamento."
+            );
+
+            return;
+        }
+
+
+        /* --------------------------------------------------------
+           PERÍODO
+        -------------------------------------------------------- */
+
+        if (!periodoSelecionado) {
+
+            alert(
+                "Selecione um período para o agendamento."
+            );
+
+            return;
+        }
+
+
+        /* --------------------------------------------------------
+           HORÁRIO
+        -------------------------------------------------------- */
+
+        if (!horarioSelecionado) {
+
+            alert(
+                "Selecione um horário para o agendamento."
+            );
+
+            return;
+        }
+
+
+        /* --------------------------------------------------------
+           DADOS
+        -------------------------------------------------------- */
+
+        const periodo =
+            periodoSelecionado.dataset.periodo;
+
+        const horario =
+            horarioSelecionado.dataset.horario;
+
+
+        console.log("Agendamento:");
+        console.log("Data:", dataSelecionada);
+        console.log("Período:", periodo);
+        console.log("Horário:", horario);
+
+
+        /*
+         * Por enquanto apenas validamos a seleção.
+         *
+         * Depois esses dados serão enviados para o PHP
+         * responsável por salvar o agendamento no banco.
+         */
+
+    });
+
+}

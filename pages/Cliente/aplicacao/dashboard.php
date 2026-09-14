@@ -97,9 +97,9 @@ $dadosSaude = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                     <!-- Lado Direito -->
 
-                    <div class="lg:w-3/5 p-8 flex items-center justify-between flex-col">
+                    <div class="lg:w-3/5 gap-3 p-8 flex items-center flex-col justify-center">
 
-                        <div class="w-full rounded-xl border-1 overflow-hidden shadow-lg pb-5">
+                        <div class="w-full rounded-xl border-1 overflow-hidden shadow-lg ">
 
                             <div class="bg-sky-400 p-4">
 
@@ -154,7 +154,7 @@ $dadosSaude = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php } ?>
                                 </div>
                             </div>
- <div class="flex gap-4 w-full max-w-lg">
+ <div class="flex gap-5 w-full max-w-lg">
                         <a href="<?= ROOT_PATH ?>pages/Cliente/aplicacao/usuario/perfil.php"
                             class="w-full  bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
                             Ver Perfil
