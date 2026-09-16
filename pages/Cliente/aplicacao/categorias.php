@@ -4,30 +4,19 @@ include_once("../../../constante.php");
 include_once("../../../service/conexao.php");
 include_once("../../../service/auth.php");
 
-
 $sql = "SELECT especialidade, COUNT(*) AS quantidade FROM profissionais WHERE especialidade IS NOT NULL AND especialidade != '' GROUP BY especialidade";
-
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
-
 $profissionaisPorCategoria = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
-
 ?>
 
 <!doctype html>
-
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="../../../src/output.css" rel="stylesheet">
-
     <title>Categorias</title>
-
 </head>
 
 <body>
@@ -37,16 +26,9 @@ $profissionaisPorCategoria = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
         <div class="bg-white w-full md:max-w-6xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden">
 
             <div class="p-6 md:p-10">
-
-                <!-- Título -->
-
                 <h1 class="text-3xl md:text-4xl font-poppins font-semibold mb-6">
-
                     Seja Bem-vindo, <?= htmlspecialchars($nomeUser) ?>!
-
                 </h1>
-
-                <!-- Categorias -->
 
                 <div id="listaCategorias" class="grid grid-cols-2 lg:grid-cols-4 gap-5">
 

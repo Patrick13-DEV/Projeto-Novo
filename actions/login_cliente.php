@@ -6,11 +6,8 @@ include_once("../service/conexao.php");
 
 if ($_SERVER['REQUEST_METHOD']==="POST"){
     if(!empty($_POST['email']) && !empty($_POST['senha'])){
-    try {
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
+    try {$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL); $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            //CONSULTA AO BANCO DE DADOS VERIFICAR EMAIL
             $sql = "SELECT id, nome, email, senha FROM clientes WHERE email = :email";
             $select = $conexao->prepare($sql);
             $select->bindParam(':email', $email);

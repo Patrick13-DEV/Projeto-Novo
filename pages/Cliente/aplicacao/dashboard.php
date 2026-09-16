@@ -5,10 +5,7 @@ include_once("../../../constante.php");
 include_once("../../../service/conexao.php");
 include_once("../../../service/auth.php");
 
-$sql = "SELECT indicador, pressao
-        FROM indicadores_saude
-        WHERE cliente_id = :cliente_id";
-
+$sql = "SELECT indicador, pressao FROM indicadores_saude WHERE cliente_id = :cliente_id";
 $stmt = $conexao->prepare($sql);
 $stmt->bindParam(":cliente_id", $idUser);
 $stmt->execute();
@@ -35,143 +32,94 @@ $dadosSaude = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="w-full max-w-7xl bg-white md:rounded-[2.5rem] shadow-lg overflow-hidden">
             <div class="p-4 sm:p-6 lg:p-4">
                 <div class="flex flex-col md:flex-row gap-6 lg:gap-8">
-
-                    <!-- Lado Esquerdo -->
                     <div class="w-full md:w-3/5  flex flex-col gap-4">
-
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-<h1 class="text-2xl md:text-xl lg:text-3xl font-poppins font-semibold">
-    Seja Bem-vindo, <?= htmlspecialchars($nomeUser) ?>!
-</h1>
-
-                                <h2 class="text-xl text-sky-500 mt-3 font-poppins">
-                                    Como posso ajudar você hoje?
-                                </h2>
+                                <h1 class="text-2xl md:text-xl lg:text-3xl font-poppins font-semibold">Seja Bem-vindo, <?= htmlspecialchars($nomeUser) ?>!</h1>
+                                <h2 class="text-xl text-sky-500 mt-3 font-poppins">Como posso ajudar você hoje?</h2>
                             </div>
-
                         </div>
-
-                        <!-- Agendamentos -->
 
                         <a href="./categorias.php"
                             class="bg-sky-400 rounded-xl border-1 h-40 flex flex-col justify-center items-center shadow-lg hover:bg-sky-500 duration-300">
-
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-20 stroke-white">
-
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-
                             </svg>
 
                             <p class="text-white text-2xl font-bold font-poppins">
                                 Agendamentos
                             </p>
-
                         </a>
 
-                        <!-- Nenhum Agendamento -->
-
                         <div class="bg-gray-100 rounded-xl border-1 h-56 flex flex-col justify-center items-center shadow-lg">
-
                             <div class="bg-sky-400 w-24 h-24 rounded-full flex items-center justify-center">
-
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="size-16 stroke-white">
-
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-
                                 </svg>
-
                             </div>
 
                             <p class="mt-5 font-poppins font-medium text-gray-700">
                                 Nenhum Agendamento Pendente
                             </p>
-
                         </div>
-
                     </div>
 
-                    <!-- Lado Direito -->
-
                     <div class="lg:w-3/5 gap-3 p-8 flex items-center flex-col justify-center">
-
                         <div class="w-full rounded-xl border-1 overflow-hidden shadow-lg ">
-
                             <div class="bg-sky-400 p-4">
-
                                 <h3 class="text-white font-semibold font-poppins text-md">
                                     Pressão Arterial
                                 </h3>
-
                             </div>
-
                             <div class="bg-white p-4 border-b">
-
-                                <ul class="list-disc ps-5 font-poppins text-gray-600">
-<?php foreach ($dadosSaude as $dado) { ?>
-
-    <?php if (!empty($dado['pressao'])) { ?>
-
-        <li>
-            Pressão Arterial:
-            <strong><?= htmlspecialchars($dado['pressao']) ?></strong>
-        </li>
-
-    <?php } ?>
-
-<?php } ?>
+                                <ul class="list-disc ps-5 font-poppins text-gray-600"><?php foreach ($dadosSaude as $dado) { ?>
+                                <?php if (!empty($dado['pressao'])) { ?>
+                            <li>Pressão Arterial: <strong><?= htmlspecialchars($dado['pressao']) ?></strong>
+                            </li>
+                            <?php } ?>
+                            <?php } ?>
                                 </ul>
-
                             </div>
 
                             <div class="bg-sky-400 p-2">
-
                                 <h3 class="text-white font-semibold font-poppins text-md">
                                     Quais são os Indicadores de Saúde?
                                 </h3>
-
                             </div>
 
                             <div class="bg-white divide-y">
-<?php foreach ($dadosSaude as $dado) { ?>
-
-    <?php if (!empty($dado['indicador'])) { ?>
-
-        <div class="p-4">
-            <ul class="list-disc ps-5 font-poppins text-gray-600">
-                <li>
-                    <?= htmlspecialchars($dado['indicador']) ?>
-                </li>
-            </ul>
-        </div>
-
-    <?php } ?>
-
-<?php } ?>
+                            <?php foreach ($dadosSaude as $dado) { ?>
+                                <?php if (!empty($dado['indicador'])) { ?>
+                                <div class="p-4">
+                                    <ul class="list-disc ps-5 font-poppins text-gray-600">
+                                        <li>
+                                            <?= htmlspecialchars($dado['indicador']) ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <?php } ?>
+                            <?php } ?>
                                 </div>
                             </div>
- <div class="flex gap-5 w-full max-w-lg">
-                        <a href="<?= ROOT_PATH ?>pages/Cliente/aplicacao/usuario/perfil.php"
-                            class="w-full  bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
-                            Ver Perfil
+
+
+                    <div class="flex gap-5 w-full max-w-lg">
+                        <a href="<?= ROOT_PATH ?>pages/Cliente/aplicacao/usuario/perfil.php" class="w-full  bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500">
+                        Ver Perfil
                         </a>
-                        <a href="<?= ROOT_PATH ?>actions/logout.php"
-                            class="w-full max-w-xs bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-600">
-                            Sair
+                        <a href="<?= ROOT_PATH ?>actions/logout.php" class="w-full max-w-xs bg-sky-400 text-center text-xl rounded-full bg-red-500  py-4 font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-600">
+                        Sair
                         </a>
                     </div>
                 </div>
-
-                </div>
-
             </div>
-
         </div>
     </div>
+</div>
 
 </body>
 

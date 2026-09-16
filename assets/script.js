@@ -90,12 +90,6 @@ if (especialidadeContainer) {
     const lista = document.getElementById("listaEspecialidades");
     const inputId = document.getElementById("especialidade_id");
 
-    /*
-      |--------------------------------------------------------------------------
-      | ESPECIALIDADES
-      |--------------------------------------------------------------------------
-      */
-
     const especialidades = [
         {
             id: 1,
@@ -306,12 +300,6 @@ if (especialidadeContainer) {
         }, 100);
     }
 
-    /*
-      |--------------------------------------------------------------------------
-      | FECHAR
-      |--------------------------------------------------------------------------
-      */
-
     function fecharDropdown() {
         dropdown.classList.add("opacity-0", "invisible", "-translate-y-3");
 
@@ -324,12 +312,6 @@ if (especialidadeContainer) {
         renderizarEspecialidades();
     }
 
-    /*
-      |--------------------------------------------------------------------------
-      | CLIQUE NO BOTÃO
-      |--------------------------------------------------------------------------
-      */
-
     button.addEventListener("click", () => {
         const fechado = dropdown.classList.contains("invisible");
 
@@ -340,21 +322,10 @@ if (especialidadeContainer) {
         }
     });
 
-    /*
-      |--------------------------------------------------------------------------
-      | PESQUISA
-      |--------------------------------------------------------------------------
-      */
 
     inputPesquisa.addEventListener("input", () => {
         renderizarEspecialidades(inputPesquisa.value);
     });
-
-    /*
-      |--------------------------------------------------------------------------
-      | CLIQUE FORA
-      |--------------------------------------------------------------------------
-      */
 
     document.addEventListener("click", (event) => {
         if (!especialidadeContainer.contains(event.target)) {
@@ -362,15 +333,9 @@ if (especialidadeContainer) {
         }
     });
 
-    /*
-      |--------------------------------------------------------------------------
-      | INICIALIZA
-      |--------------------------------------------------------------------------
-      */
 
     renderizarEspecialidades();
 }
-
 const categorias = [
     "Cardiologia",
     "Clínica Geral",
@@ -468,25 +433,10 @@ if (listaCategorias) {
 
                 return categoria
                     .toLowerCase()
-                    .includes(pesquisa);
-
-            });
-
-
-            mostrarCategorias(resultado);
-
-        });
-
+                    .includes(pesquisa);});
+            mostrarCategorias(resultado);});
     }
-
-
-
 }
-
-
-/* ============================================================
-   AGENDAMENTO
-============================================================ */
 
 const dataAgendamento =
     document.getElementById("dataAgendamento");
@@ -497,10 +447,6 @@ const periodosAgendamento =
 const horariosAgendamento =
     document.querySelectorAll(".horario-agendamento");
 
-
-/* ============================================================
-   DATA
-============================================================ */
 
 if (dataAgendamento) {
 
@@ -514,11 +460,6 @@ if (dataAgendamento) {
     });
 
 }
-
-
-/* ============================================================
-   PERÍODO
-============================================================ */
 
 function ativarPeriodo(botao) {
 
@@ -563,11 +504,6 @@ periodosAgendamento.forEach(function (botao) {
     });
 
 });
-
-
-/* ============================================================
-   HORÁRIO
-============================================================ */
 
 function ativarHorario(botao) {
 
@@ -624,11 +560,6 @@ horariosAgendamento.forEach(function (botao) {
 
 });
 
-
-/* ============================================================
-   PROCESSAR AGENDAMENTO
-============================================================ */
-
 const processarAgendamento =
     document.getElementById("processarAgendamento");
 
@@ -654,11 +585,6 @@ if (processarAgendamento) {
                 ".horario-agendamento.bg-sky-400"
             );
 
-
-        /* --------------------------------------------------------
-           DATA
-        -------------------------------------------------------- */
-
         if (!dataSelecionada) {
 
             alert(
@@ -667,11 +593,6 @@ if (processarAgendamento) {
 
             return;
         }
-
-
-        /* --------------------------------------------------------
-           PERÍODO
-        -------------------------------------------------------- */
 
         if (!periodoSelecionado) {
 
@@ -683,9 +604,7 @@ if (processarAgendamento) {
         }
 
 
-        /* --------------------------------------------------------
-           HORÁRIO
-        -------------------------------------------------------- */
+
 
         if (!horarioSelecionado) {
 
@@ -695,11 +614,6 @@ if (processarAgendamento) {
 
             return;
         }
-
-
-        /* --------------------------------------------------------
-           DADOS
-        -------------------------------------------------------- */
 
         const periodo =
             periodoSelecionado.dataset.periodo;
@@ -712,14 +626,6 @@ if (processarAgendamento) {
         console.log("Data:", dataSelecionada);
         console.log("Período:", periodo);
         console.log("Horário:", horario);
-
-
-        /*
-         * Por enquanto apenas validamos a seleção.
-         *
-         * Depois esses dados serão enviados para o PHP
-         * responsável por salvar o agendamento no banco.
-         */
 
     });
 

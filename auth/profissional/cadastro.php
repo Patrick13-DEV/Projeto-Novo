@@ -16,7 +16,6 @@ include_once("../../constante.php");
 </head>
 
 <body>
-    <!-- Container principal que ocupa a tela toda com fundo azul -->
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
 
     

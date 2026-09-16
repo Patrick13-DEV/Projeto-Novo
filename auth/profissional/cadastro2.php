@@ -20,9 +20,6 @@ include_once("../../constante.php");
         <div class="bg-white w-full lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden ">
 
             <div class="flex flex-col md:flex-row">
-
-
-
                 <form action="<?= ROOT_PATH ?>actions/cadastro_profissional.php" method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
                 <input type="hidden" name="etapa" value="dados_profissionais">
                     <h1 class="text-4xl font-poppins font-semibold"> Cadastre-se </h1>
@@ -30,7 +27,6 @@ include_once("../../constante.php");
                     <p class="text-gray-500 text-xs px-18 md:px-0 font-poppins form-extralight"> Preencha com as informações necessárias </p>
 
                     <div class="relative w-full" id="especialidadeContainer">
-
                         <button type="button" id="especialidadeButton" class="w-full h-[70px] border-2 border-gray-300 rounded-sm px-3 flex items-center gap-4 text-left transition-all duration-300 hover:border-sky-400 focus:outline-none">
                             <div class="bg-sky-800 size-[52px] shrink-0 rounded-lg flex items-center justify-center text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

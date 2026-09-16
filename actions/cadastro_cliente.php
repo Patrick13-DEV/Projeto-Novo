@@ -18,12 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
         try {
-
-            $sql = "INSERT INTO clientes (nome, email, senha, cpf, telefone)
-                    VALUES (:nome, :email, :senha, :cpf, :telefone)";
-
+            $sql = "INSERT INTO clientes (nome, email, senha, cpf, telefone) VALUES (:nome, :email, :senha, :cpf, :telefone)";
             $insert = $conexao->prepare($sql);
-
             $insert->bindParam(":nome", $nome);
             $insert->bindParam(":email", $email);
             $insert->bindParam(":senha", $senhaCriptografada);
