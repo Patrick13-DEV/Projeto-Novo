@@ -441,71 +441,24 @@ if (listaCategorias) {
 const dataAgendamento =
     document.getElementById("dataAgendamento");
 
-const periodosAgendamento =
-    document.querySelectorAll(".periodo-agendamento");
-
 const horariosAgendamento =
     document.querySelectorAll(".horario-agendamento");
+
+const horaAgendamento =
+    document.getElementById("horaAgendamento");
 
 
 if (dataAgendamento) {
 
     dataAgendamento.addEventListener("change", function () {
 
-        console.log(
-            "Data selecionada:",
-            this.value
-        );
-
     });
 
 }
 
-function ativarPeriodo(botao) {
-
-    periodosAgendamento.forEach(function (periodo) {
-
-        periodo.classList.remove(
-            "bg-sky-400",
-            "text-white"
-        );
-
-        periodo.classList.add(
-            "bg-white",
-            "border",
-            "border-gray-200",
-            "text-gray-700"
-        );
-
-    });
-
-
-    botao.classList.remove(
-        "bg-white",
-        "border",
-        "border-gray-200",
-        "text-gray-700"
-    );
-
-    botao.classList.add(
-        "bg-sky-400",
-        "text-white"
-    );
-
-}
-
-
-periodosAgendamento.forEach(function (botao) {
-
-    botao.addEventListener("click", function () {
-
-        ativarPeriodo(this);
-
-    });
-
-});
 
 function ativarHorario(botao) {
+
 
     horariosAgendamento.forEach(function (horario) {
 
@@ -513,7 +466,6 @@ function ativarHorario(botao) {
         if (horario.disabled) {
             return;
         }
-
 
         horario.classList.remove(
             "bg-sky-400",
@@ -542,6 +494,14 @@ function ativarHorario(botao) {
         "text-white"
     );
 
+
+    if (horaAgendamento) {
+
+        horaAgendamento.value =
+            botao.dataset.horario;
+
+    }
+
 }
 
 
@@ -560,6 +520,7 @@ horariosAgendamento.forEach(function (botao) {
 
 });
 
+
 const processarAgendamento =
     document.getElementById("processarAgendamento");
 
@@ -574,16 +535,11 @@ if (processarAgendamento) {
                 : "";
 
 
-        const periodoSelecionado =
-            document.querySelector(
-                ".periodo-agendamento.bg-sky-400"
-            );
-
-
         const horarioSelecionado =
             document.querySelector(
                 ".horario-agendamento.bg-sky-400"
             );
+
 
         if (!dataSelecionada) {
 
@@ -592,18 +548,8 @@ if (processarAgendamento) {
             );
 
             return;
+
         }
-
-        if (!periodoSelecionado) {
-
-            alert(
-                "Selecione um período para o agendamento."
-            );
-
-            return;
-        }
-
-
 
 
         if (!horarioSelecionado) {
@@ -613,19 +559,26 @@ if (processarAgendamento) {
             );
 
             return;
+
         }
 
-        const periodo =
-            periodoSelecionado.dataset.periodo;
 
         const horario =
             horarioSelecionado.dataset.horario;
 
 
         console.log("Agendamento:");
+
         console.log("Data:", dataSelecionada);
-        console.log("Período:", periodo);
+
         console.log("Horário:", horario);
+
+        console.log(
+            "Horário no input:",
+            horaAgendamento
+                ? horaAgendamento.value
+                : ""
+        );
 
     });
 
