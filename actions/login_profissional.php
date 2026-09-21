@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
     try {
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
-            $sql = "SELECT email, senha FROM profissionais WHERE email = :email";
+            $sql = "SELECT id, nome, email, senha FROM profissionais WHERE email = :email";
             $select = $conexao->prepare($sql);
             $select->bindParam(':email', $email);
             if ($select->execute() && $select->rowCount()>0){
