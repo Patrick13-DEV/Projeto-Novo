@@ -1,20 +1,8 @@
 <?php
-
 include_once("./constante.php");
-
+include_once("./includes/header.php");
+include_once("./service/conexao.php");
 ?>
-
-<!doctype html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/output.css" rel="stylesheet" />
-    <title>Inova Vida Tech</title>
-</head>
-
-<body>
 
     <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
         <div
@@ -35,7 +23,7 @@ include_once("./constante.php");
 
         </div>
     </div>
-    </div>
-</body>
 
-</html>
+<?php
+include_once("./includes/footer.php");
+?>
