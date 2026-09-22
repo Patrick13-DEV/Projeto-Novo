@@ -583,3 +583,31 @@ if (processarAgendamento) {
     });
 
 }
+
+
+        let formularioSelecionado = null;
+        function confirmarAgendamento(botao, status, mensagem) {
+            formularioSelecionado = botao.closest('form'); const toast = document.getElementById('toastConfirmacao');
+            const mensagemToast = document.getElementById('toastMensagem');
+            const btnConfirmar = document.getElementById('btnConfirmarToast');
+            mensagemToast.textContent = mensagem;
+            toast.classList.remove('hidden');
+            if (status === 'confirmado') {btnConfirmar.className ='rounded-lg bg-green-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-600';
+            } else {
+                btnConfirmar.className = 'rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-600';
+            }
+
+            btnConfirmar.onclick = function () {
+                if (formularioSelecionado) {
+                    formularioSelecionado.submit();
+                }
+            };
+        }
+
+        function fecharToast() {
+            const toast = document.getElementById(
+                'toastConfirmacao'
+            );
+            toast.classList.add('hidden');
+            formularioSelecionado = null;
+        }
