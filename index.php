@@ -4,7 +4,7 @@ include_once("./includes/header.php");
 include_once("./service/conexao.php");
 ?>
 
-    <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
+    <div class="min-h-screen bg-sky-300 flex items-end  md:items-start md:pt-10 justify-center">
         <div
             class=" bg-white w-full md:h-full max-w-[414px] md:max-w-2xl p-6 md:p-10 rounded-t-[2.5rem] md:rounded-[2.5rem] flex flex-col items-center  gap-6 shadow-lg ">
             <div class="w-full max-w-xs md:max-w-sm lg:max-w-md flex justify-center">

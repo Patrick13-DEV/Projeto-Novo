@@ -1,7 +1,21 @@
-    <footer class="bg-light py-4 mt-5">
-        <p class="text-center">InovaVida - &copy 2026</p>
+<body class="min-h-screen flex flex-col bg-slate-50">
+
+    <!-- Todo o conteúdo da página fica aqui -->
+
+    <main class="flex-1">
+        <!-- conteúdo da sua página -->
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 bg-white py-4">
+        <p class="m-0 text-center text-sm text-slate-500">
+            InovaVida - &copy; 2026
+        </p>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
-<script src="<?= ROOT_PATH?>assets/js/script.js"></script>
+
+
+    <script src="<?= ROOT_PATH ?>assets/js/script.js"></script>
+
 </body>
 </html>
