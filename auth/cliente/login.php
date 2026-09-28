@@ -1,27 +1,16 @@
 <?php
 
 include_once("../../constante.php");
+include_once("../../includes/header.php");
+include_once("../../service/conexao.php");
 
 ?>
 
-
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../../src/output.css" rel="stylesheet" />
-    <title>Inova Vida Tech - Login</title>
-</head>
-
-<body>
-    <div class="min-h-screen bg-sky-300 flex items-end md:items-center justify-center">
+<main class="flex-1 bg-sky-300">
+    <div class="flex w-full justify-center py-8">
 
         <div class="bg-white w-full md:max-w-2xl lg:max-w-7xl rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-lg overflow-hidden">
-
             <div class="flex flex-col md:flex-row">
-
                 <form action="<?= ROOT_PATH ?>actions/login_cliente.php
                 " method="post" class="w-full lg:w-2/5 p-6 md:p-5 flex flex-col gap-4 items-center lg:min-h-[753px]">
 
@@ -61,6 +50,4 @@ include_once("../../constante.php");
     </div>
 
     <script src="/InovaVida/assets/script.js" defer></script>
-</body>
-
-</html>
+</main>
