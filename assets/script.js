@@ -620,3 +620,206 @@ if (processarAgendamento) {
         mobileMenuButton?.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
         });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal =
+        document.getElementById("modalAgendamento");
+    const card =
+        document.getElementById("cardModalAgendamento");
+    const fecharModal =
+        document.getElementById("fecharModalAgendamento");
+    const fecharModalBottom =
+        document.getElementById("fecharModalAgendamentoBottom");
+    const botoes =
+        document.querySelectorAll(".abrir-modal-agendamento");
+    const modalId =
+        document.getElementById("modalId");
+    const modalStatus =
+        document.getElementById("modalStatus");
+    const modalStatusIcon =
+        document.getElementById("modalStatusIcon");
+    const modalStatusText =
+        document.getElementById("modalStatusText");
+    const modalStatusBadge =
+        document.getElementById("modalStatusBadge");
+    const modalProfissional =
+        document.getElementById("modalProfissional");
+    const modalData =
+        document.getElementById("modalData");
+    const modalHora =
+        document.getElementById("modalHora");
+    const modalIdentificacao =
+        document.getElementById("modalIdentificacao");
+    const modalDescricao =
+        document.getElementById("modalDescricao");
+
+
+    function abrirModal(botao) {
+        const id =
+            botao.dataset.id;
+        const status =
+            botao.dataset.status;
+        const profissional =
+            botao.dataset.profissional;
+        const data =
+            botao.dataset.data;
+        const hora =
+            botao.dataset.hora;
+        const descricao =
+            botao.dataset.descricao;
+
+        modalId.textContent =
+            "#" + id;
+        modalProfissional.textContent =
+            profissional;
+        modalData.textContent =
+            data;
+        modalHora.textContent =
+            hora;
+        modalIdentificacao.textContent =
+            "AG-" + String(id).padStart(5, "0");
+        modalDescricao.textContent =
+            descricao || "Nenhuma descrição informada.";
+
+        if (status === "confirmado") {
+            modalStatus.className =
+                "mb-6 flex items-center justify-between gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4";
+            modalStatusIcon.className =
+                "flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600";
+            modalStatusIcon.innerHTML = `
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="h-5 w-5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m5 12 4 4L19 6"
+                    />
+                </svg>
+            `;
+            modalStatusText.className =
+                "font-poppins text-base font-bold text-emerald-700";
+            modalStatusText.textContent =
+                "Agendamento confirmado";
+            modalStatusBadge.className =
+                "rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700";
+            modalStatusBadge.textContent =
+                "CONFIRMADO";
+        }
+
+        else {
+
+            modalStatus.className =
+                "mb-6 flex items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-4";
+            modalStatusIcon.className =
+                "flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-600";
+            modalStatusIcon.innerHTML = `
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="h-5 w-5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6v6l4 2"
+                    />
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                    />
+                </svg>
+            `;
+
+
+            modalStatusText.className =
+                "font-poppins text-base font-bold text-amber-700";
+            modalStatusText.textContent =
+                "Aguardando confirmação";
+            modalStatusBadge.className =
+                "rounded-full bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-700";
+            modalStatusBadge.textContent =
+                "PENDENTE";
+        }
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+        requestAnimationFrame(function () {
+            card.classList.remove(
+                "scale-95",
+                "opacity-0"
+            );
+            card.classList.add(
+                "scale-100",
+                "opacity-100"
+            );
+
+        });
+
+    }
+
+
+    function fechar() {
+        card.classList.remove(
+            "scale-100",
+            "opacity-100"
+        );
+        card.classList.add(
+            "scale-95",
+            "opacity-0"
+        );
+
+        setTimeout(function () {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+            document.body.classList.remove(
+                "overflow-hidden"
+            );
+        }, 300);
+    }
+
+    botoes.forEach(function (botao) {
+        botao.addEventListener(
+            "click", function () {
+                abrirModal(botao);
+            }
+        );
+    });
+
+    fecharModal.addEventListener(
+        "click", fechar);
+
+
+    fecharModalBottom.addEventListener(
+        "click", fechar);
+
+
+    modal.addEventListener(
+        "click", function (event) {
+            if (event.target === modal) {
+                fechar();
+            }
+        }
+    );
+
+    document.addEventListener(
+        "keydown", function (event) {
+            if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+                fechar();
+            }
+        }
+    );
+});
+
