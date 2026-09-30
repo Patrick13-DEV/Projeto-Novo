@@ -3,22 +3,24 @@ include_once("../constante.php");
 include_once("../service/conexao.php");
 
 
-if ($_SERVER['REQUEST_METHOD']==="POST"){
-    if(!empty($_POST['email']) && !empty($_POST['senha'])){
-    try {
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if (!empty($_POST['email']) && !empty($_POST['senha'])) {
+        try {
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
             $sql = "SELECT id, nome, email, senha FROM profissionais WHERE email = :email";
             $select = $conexao->prepare($sql);
             $select->bindParam(':email', $email);
-            if ($select->execute() && $select->rowCount()>0){
+            if ($select->execute() && $select->rowCount() > 0) {
                 $login = $select->fetch(PDO::FETCH_ASSOC);
-                if (password_verify($senha, $login['senha'])){
+                if (password_verify($senha, $login['senha'])) {
                     $_SESSION['logado'] = TRUE;
+                    $_SESSION['tipoUsuario'] = 'profissional';
                     $_SESSION['idUser'] = $login['id'];
                     $_SESSION['nomeUser'] = $login['nome'];
                     $_SESSION['mensagem'] = "Login realizado com sucesso!";
                     $_SESSION['cor'] = 'alert-success';
+
                     header("Location: " . ROOT_PATH . "pages/profissional/aplicacao/dashboard.php");
                     exit;
                 }
@@ -27,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
             $_SESSION['cor'] = 'alert-danger';
             header("Location: " . ROOT_PATH . "auth/profissional/login.php");
             exit;
-    } catch (\Exception $e) {
+        } catch (\Exception $e) {
             $_SESSION['mensagem'] = "Ocorreu um erro no Banco de Dados";
             $_SESSION['cor'] = 'alert-danger';
             header("Location: " . ROOT_PATH . "auth/profissional/login.php");
             exit;
-    } finally {
-        unset($conexao);
-    }
+        } finally {
+            unset($conexao);
+        }
     } else {
         $_SESSION['mensagem'] = "Obrigatório preencher todos os campos";
         $_SESSION['cor'] = 'alert-danger';
@@ -42,5 +44,3 @@ if ($_SERVER['REQUEST_METHOD']==="POST"){
         exit;
     }
 }
-
-?>
