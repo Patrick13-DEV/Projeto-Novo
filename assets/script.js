@@ -678,3 +678,179 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.getElementById("modalEditarPerfil");
+    const card = document.getElementById("cardEditarPerfil");
+
+    const abrir = document.getElementById("abrirModalEditarPerfil");
+    const fechar = document.getElementById("fecharModalEditarPerfil");
+    const cancelar = document.getElementById("cancelarEdicaoPerfil");
+
+
+    function abrirModal() {
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+
+        document.body.classList.add("overflow-hidden");
+
+        requestAnimationFrame(function () {
+
+            card.classList.remove(
+                "scale-95",
+                "opacity-0"
+            );
+
+            card.classList.add(
+                "scale-100",
+                "opacity-100"
+            );
+
+        });
+
+    }
+
+
+    function fecharModal() {
+
+        card.classList.remove(
+            "scale-100",
+            "opacity-100"
+        );
+
+        card.classList.add(
+            "scale-95",
+            "opacity-0"
+        );
+
+        setTimeout(function () {
+
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+
+            document.body.classList.remove("overflow-hidden");
+
+        }, 300);
+
+    }
+
+
+    abrir.addEventListener("click", abrirModal);
+
+    fechar.addEventListener("click", fecharModal);
+
+    cancelar.addEventListener("click", fecharModal);
+
+
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+            fecharModal();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            !modal.classList.contains("hidden")
+        ) {
+            fecharModal();
+        }
+
+    });
+
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.getElementById("modalEditarPerfil");
+    const card = document.getElementById("cardEditarPerfil");
+
+    const abrir = document.getElementById("abrirModalEditarPerfil");
+    const fechar = document.getElementById("fecharModalEditarPerfil");
+    const cancelar = document.getElementById("cancelarEdicaoPerfil");
+
+
+    function abrirModal() {
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+
+        document.body.classList.add("overflow-hidden");
+
+        requestAnimationFrame(function () {
+
+            card.classList.remove(
+                "scale-95",
+                "opacity-0"
+            );
+
+            card.classList.add(
+                "scale-100",
+                "opacity-100"
+            );
+
+        });
+
+    }
+
+
+    function fecharModal() {
+
+        card.classList.remove(
+            "scale-100",
+            "opacity-100"
+        );
+
+        card.classList.add(
+            "scale-95",
+            "opacity-0"
+        );
+
+        setTimeout(function () {
+
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+
+            document.body.classList.remove("overflow-hidden");
+
+        }, 300);
+
+    }
+
+
+    abrir.addEventListener("click", abrirModal);
+
+    fechar.addEventListener("click", fecharModal);
+
+    cancelar.addEventListener("click", fecharModal);
+
+
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+            fecharModal();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            !modal.classList.contains("hidden")
+        ) {
+            fecharModal();
+        }
+
+    });
+
+});
