@@ -1,31 +1,7 @@
-<?php
+<?php require_once __DIR__ . '/../../../service/access.php'; exigirUsuario('profissional'); ?>
+<?php require_once __DIR__ . '/../../../controllers/pages__profissional__aplicacao__dashboard.php'; ?>
+<?php require_once __DIR__ . '/../../../includes/header.php'; ?>
 
-include_once("../../../constante.php");
-include_once("../../../service/conexao.php");
-include_once("../../../service/auth.php");
-include_once("../../../includes/header.php");
-
-$idUser = $_SESSION['idUser'];
-
-$sql = "SELECT COUNT(*) AS total FROM agendamentos WHERE profissional_id = :profissional_id AND status = 'pendente'";
-
-$stmt = $conexao->prepare($sql);
-$stmt->bindParam(":profissional_id", $idUser, PDO::PARAM_INT);
-$stmt->execute();
-
-$notificacoes = $stmt->fetch(PDO::FETCH_ASSOC);
-$temAgendamentoPendente = $notificacoes['total'] > 0;
-
-$sql = "SELECT agendamentos.id, agendamentos.data, agendamentos.descricao, clientes.nome AS cliente FROM agendamentos INNER JOIN clientes ON agendamentos.cliente_id = clientes.id WHERE agendamentos.profissional_id = :profissional_id AND agendamentos.status = 'confirmado' ORDER BY agendamentos.data ASC";
-
-$stmt = $conexao->prepare($sql);
-$stmt->bindParam(":profissional_id", $idUser, PDO::PARAM_INT);
-$stmt->execute();
-
-$agendamentosConfirmados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$temAgendamentoConfirmado = count($agendamentosConfirmados) > 0;
-
-?>
 
 <main class="flex-1 bg-sky-300 px-3 py-4 sm:px-4 lg:px-8 flex items-end md:items-center">
 
@@ -90,9 +66,7 @@ $temAgendamentoConfirmado = count($agendamentosConfirmados) > 0;
                             <?php foreach ($agendamentosConfirmados as $agendamento): ?>
 
                                 <?php
-                                $dataAgendamento = new DateTime($agendamento['data']);
-                                $dataFormatada = $dataAgendamento->format('d/m/Y');
-                                $horaAgendamento = $dataAgendamento->format('H:i');
+                                [$dataFormatada, $horaAgendamento] = dataHoraAgendamento($agendamento['data']);
                                 ?>
 
                                 <div class="mb-2 flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-white px-3.5 py-2.5">

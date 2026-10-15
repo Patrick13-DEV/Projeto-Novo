@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../service/access.php'; somenteVisitantes(); ?>
 <?php
 // arquivo de conexao ao banco de dados
 include_once("../constante.php");
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $login = $select->fetch(PDO::FETCH_ASSOC);
 
                 if (password_verify($senha, $login['senha'])) {
+                    session_regenerate_id(true);
                     $_SESSION['logado'] = TRUE;
                     $_SESSION['tipoUsuario'] = 'cliente';
                     $_SESSION['idUser'] = $login['id'];
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $_SESSION['mensagem'] = "Login realizado com sucesso!";
                     $_SESSION['cor'] = 'alert-success';
 
-                    header("Location: " . ROOT_PATH . "pages/cliente/aplicacao/dashboard.php");
+                    header("Location: " . ROOT_PATH . "pages/Cliente/aplicacao/dashboard.php");
                     exit;
                 }
             }

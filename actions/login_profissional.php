@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../service/access.php'; somenteVisitantes(); ?>
 <?php
 include_once("../constante.php");
 include_once("../service/conexao.php");
@@ -14,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if ($select->execute() && $select->rowCount() > 0) {
                 $login = $select->fetch(PDO::FETCH_ASSOC);
                 if (password_verify($senha, $login['senha'])) {
+                    session_regenerate_id(true);
                     $_SESSION['logado'] = TRUE;
                     $_SESSION['tipoUsuario'] = 'profissional';
                     $_SESSION['idUser'] = $login['id'];
@@ -40,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } else {
         $_SESSION['mensagem'] = "Obrigatório preencher todos os campos";
         $_SESSION['cor'] = 'alert-danger';
-        header("Location: " . ROOT_PATH . "auth/profissinal/login.php");
+        header("Location: " . ROOT_PATH . "auth/profissional/login.php");
         exit;
     }
 }

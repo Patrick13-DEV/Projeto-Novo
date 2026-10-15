@@ -1,18 +1,11 @@
-<?php
+<?php require_once __DIR__ . '/../../../service/access.php'; exigirUsuario('cliente'); ?>
+<?php require_once __DIR__ . '/../../../controllers/pages__Cliente__aplicacao__categorias.php'; ?>
 
-include_once("../../../constante.php");
-include_once("../../../service/conexao.php");
-include_once("../../../service/auth.php");
-
-$sql = "SELECT especialidade, COUNT(*) AS quantidade FROM profissionais WHERE especialidade IS NOT NULL AND especialidade != '' GROUP BY especialidade";
-$stmt = $conexao->prepare($sql);
-$stmt->execute();
-$profissionaisPorCategoria = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
-?>
 
 <!doctype html>
 <html lang="pt-BR">
 <head>
+    <link rel="stylesheet" href="../../../assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../../src/output.css" rel="stylesheet">
@@ -30,7 +23,7 @@ $profissionaisPorCategoria = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
                     Seja Bem-vindo, <?= htmlspecialchars($nomeUser) ?>!
                 </h1>
 
-                <div id="listaCategorias" class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+                <div id="listaCategorias" data-contagens="<?= htmlspecialchars(json_encode($profissionaisPorCategoria, JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP), ENT_QUOTES, 'UTF-8') ?>" class="grid grid-cols-2 lg:grid-cols-4 gap-5">
 
                 </div>
 
@@ -45,6 +38,6 @@ $profissionaisPorCategoria = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 
 
 </body>
-<script>const profissionaisPorCategoria =<?= json_encode($profissionaisPorCategoria, JSON_UNESCAPED_UNICODE) ?>;</script>
+
 <script src="../../../assets/script.js"></script>
 </html>

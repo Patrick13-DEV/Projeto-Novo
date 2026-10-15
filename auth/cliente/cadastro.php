@@ -1,10 +1,7 @@
-<?php
+<?php require_once __DIR__ . '/../../service/access.php'; somenteVisitantes(); ?>
+<?php require_once __DIR__ . '/../../controllers/auth__cliente__cadastro.php'; ?>
+<?php require_once __DIR__ . '/../../includes/header.php'; ?>
 
-include_once("../../constante.php");
-include_once("../../includes/header.php");
-include_once("../../service/conexao.php");
-
-?>
 
 <main class="flex-1 bg-sky-300">
     <div class="flex w-full justify-center py-8">

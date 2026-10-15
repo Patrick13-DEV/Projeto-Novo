@@ -1,0 +1,3 @@
+# Desativa a listagem automatica de diretorios no Apache.
+# Esta configuracao e herdada pelas subpastas do projeto.
+Options -Indexes

@@ -1,7 +1,3 @@
 <?php
-
-if (!$logado) {
-    header("Location:" . ROOT_PATH . "index.php");
-    exit;
-}
-?>
+require_once __DIR__ . '/access.php';
+exigirUsuario();

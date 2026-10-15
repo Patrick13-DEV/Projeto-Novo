@@ -350,6 +350,7 @@ const categorias = [
 ];
 
 const listaCategorias = document.getElementById("listaCategorias");
+const profissionaisPorCategoria = listaCategorias ? JSON.parse(listaCategorias.dataset.contagens || "{}") : {};
 const pesquisaCategoria = document.getElementById("pesquisaCategoria");
 const nenhumaCategoria = document.getElementById("nenhumaCategoria");
 
@@ -854,3 +855,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+// Agendamento: listeners desacoplados dos atributos HTML de evento.
+document.querySelectorAll('[data-acao-agendamento]').forEach((botao) => {
+    botao.addEventListener('click', () => {
+        confirmarAgendamento(botao, botao.dataset.acaoAgendamento, botao.dataset.mensagem);
+    });
+});
+document.getElementById('btnFecharToast')?.addEventListener('click', fecharToast);

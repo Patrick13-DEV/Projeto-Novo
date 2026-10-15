@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../service/access.php'; somenteVisitantes(); ?>
 <?php
 
 session_start();

@@ -1,54 +1,11 @@
-<?php
+<?php require_once __DIR__ . '/../../../service/access.php'; exigirUsuario('profissional'); ?>
+<?php require_once __DIR__ . '/../../../controllers/pages__profissional__aplicacao__agendamento.php'; ?>
 
-include_once("../../../constante.php");
-include_once("../../../service/conexao.php");
-include_once("../../../service/auth.php");
-
-
-$idUser = $_SESSION['idUser'];
-$porPagina = 6;
-$pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
-if ($pagina < 1) {$pagina = 1;}
-$inicio = ($pagina - 1) * $porPagina;
-
-$sqlTotal = "SELECT COUNT(*) FROM agendamentos WHERE profissional_id = :profissional_id AND status = 'pendente'";
-$stmtTotal = $conexao->prepare($sqlTotal);
-$stmtTotal->bindValue(':profissional_id', $idUser,PDO::PARAM_INT);
-$stmtTotal->execute();
-$totalAgendamentos = (int) $stmtTotal->fetchColumn();
-
-$totalPaginas = ceil($totalAgendamentos / $porPagina);
-$agendamentos = [];
-
-if ($totalAgendamentos > 0) {
-    $sql = "SELECT agendamentos.id, agendamentos.data, agendamentos.descricao, clientes.nome AS cliente FROM agendamentos
-            INNER JOIN clientes ON agendamentos.cliente_id = clientes.id WHERE agendamentos.profissional_id = :profissional_id AND agendamentos.status = 'pendente'
-            ORDER BY agendamentos.data ASC
-            LIMIT :inicio, :porPagina";
-
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindValue(':profissional_id', $idUser,PDO::PARAM_INT);
-    $stmt->bindValue(':inicio', $inicio,PDO::PARAM_INT);
-    $stmt->bindValue(':porPagina', $porPagina, PDO::PARAM_INT);
-    $stmt->execute();
-    $agendamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-$diasSemana = [
-    'Sunday' => 'Domingo',
-    'Monday' => 'Segunda-feira',
-    'Tuesday' => 'Terça-feira',
-    'Wednesday' => 'Quarta-feira',
-    'Thursday' => 'Quinta-feira',
-    'Friday' => 'Sexta-feira',
-    'Saturday' => 'Sábado'
-];
-
-?>
 
 <!doctype html>
 <html lang="pt-BR">
 <head>
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../../src/output.css" rel="stylesheet">
@@ -80,10 +37,7 @@ $diasSemana = [
 
                     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         <?php foreach ($agendamentos as $agendamento): ?>
-                            <?php $dataAgendamento = new DateTime($agendamento['data']);
-                            $diaSemana = $diasSemana[$dataAgendamento->format('l')];
-                            $dataFormatada = $dataAgendamento->format('d/m/Y');
-                            $horaInicio = $dataAgendamento->format('H:i');
+                            <?php [$diaSemana, $dataFormatada, $horaInicio] = dataCompletaAgendamento($agendamento['data'], $diasSemana);
                             ?>
 
                             <div class="rounded-[1.25rem] border border-gray-200 bg-white p-4 shadow-sm">
@@ -127,7 +81,7 @@ $diasSemana = [
                                     <form action="<?= ROOT_PATH ?>actions/aprovacao.php" method="POST" class="form-agendamento">
                                         <input type="hidden" name="agendamento" value="<?= $agendamento['id'] ?>">
                                         <input type="hidden" name="status" value="confirmado">
-                                        <button type="button" onclick="confirmarAgendamento(this, 'confirmado', 'Tem certeza que deseja aceitar este agendamento?')" class="rounded-md border border-green-500 px-3 py-1.5 text-sm font-semibold text-green-600 transition hover:bg-green-500 hover:text-white">
+                                        <button type="button" data-acao-agendamento="confirmado" data-mensagem="Tem certeza que deseja aceitar este agendamento?" class="rounded-md border border-green-500 px-3 py-1.5 text-sm font-semibold text-green-600 transition hover:bg-green-500 hover:text-white">
                                             Aceitar
                                         </button>
                                     </form>
@@ -135,7 +89,7 @@ $diasSemana = [
                                     <form action="<?= ROOT_PATH ?>actions/alterar_status_agendamento.php" method="POST" class="form-agendamento">
                                         <input type="hidden" name="agendamento" value="<?= $agendamento['id'] ?>">
                                         <input type="hidden" name="status" value="cancelado">
-                                        <button type="button" onclick="confirmarAgendamento(this, 'cancelado', 'Tem certeza que deseja recusar este agendamento?')" class="rounded-md border border-red-500 px-3 py-1.5 text-sm font-semibold text-red-600 transition hover:bg-red-500 hover:text-white">
+                                        <button type="button" data-acao-agendamento="cancelado" data-mensagem="Tem certeza que deseja recusar este agendamento?" class="rounded-md border border-red-500 px-3 py-1.5 text-sm font-semibold text-red-600 transition hover:bg-red-500 hover:text-white">
                                             Recusar
                                         </button>
                                     </form>
@@ -173,7 +127,7 @@ $diasSemana = [
     <div id="toastConfirmacao" class="fixed bottom-6 right-6 z-50 hidden w-[350px] max-w-[calc(100%-2rem)] rounded-2xl bg-white p-5 shadow-2xl border border-gray-200">
         <p id="toastMensagem" class="text-sm font-poppins text-gray-700"></p>
         <div class="mt-4 flex justify-end gap-2">
-            <button type="button" onclick="fecharToast()" class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-100">
+            <button type="button" id="btnFecharToast" class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-100">
                 Cancelar
             </button>
 

@@ -1,23 +1,10 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-$logoDestino = ROOT_PATH . "index.php";
-
-if (!empty($_SESSION['logado']) && $_SESSION['logado'] === true) {
-    if (isset($_SESSION['tipoUsuario']) && $_SESSION['tipoUsuario'] === 'cliente') {
-        $logoDestino = ROOT_PATH . "pages/cliente/aplicacao/dashboard.php";
-    } elseif (isset($_SESSION['tipoUsuario']) && $_SESSION['tipoUsuario'] === 'profissional') {
-        $logoDestino = ROOT_PATH . "pages/profissional/aplicacao/dashboard.php";
-    }
-}
-?>
+<?php require_once __DIR__ . "/../service/navigation.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ROOT_PATH ?>src/output.css" rel="stylesheet">

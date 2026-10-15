@@ -1,14 +1,13 @@
-<?php
+<?php require_once __DIR__ . '/../../service/access.php'; somenteVisitantes(); ?>
+<?php require_once __DIR__ . '/../../controllers/auth__profissional__cadastro.php'; ?>
 
-include_once("../../constante.php");
-
-?>
 
 
 <!doctype html>
 <html>
 
 <head>
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>assets/style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../src/output.css" rel="stylesheet" />

@@ -1,47 +1,11 @@
-<?php
+<?php require_once __DIR__ . '/../../../service/access.php'; exigirUsuario('cliente'); ?>
+<?php require_once __DIR__ . '/../../../controllers/pages__Cliente__aplicacao__agendamento.php'; ?>
 
-include_once("../../../constante.php");
-include_once("../../../service/conexao.php");
-include_once("../../../service/auth.php");
-
-$profissionalId = isset($_GET['profissional']) ? (int) $_GET['profissional'] : 0;
-$profissional = null;
-if ($profissionalId > 0) {
-    $sql = "SELECT id, nome, especialidade FROM profissionais WHERE id = :id";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindValue(':id', $profissionalId, PDO::PARAM_INT);
-    $stmt->execute();
-    $profissional = $stmt->fetch(PDO::FETCH_ASSOC);
-}
-
-$dataAtual = new DateTime();
-$dias = [];
-$nomesDias = [
-    'Sunday'    => 'Domingo',
-    'Monday'    => 'Segunda',
-    'Tuesday'   => 'Terça',
-    'Wednesday' => 'Quarta',
-    'Thursday'  => 'Quinta',
-    'Friday'    => 'Sexta',
-    'Saturday'  => 'Sábado'
-];
-
-for ($i = 0; $i < 7; $i++) {
-    $data = clone $dataAtual;
-    $data->modify("+{$i} days");
-    $diaSemana = $nomesDias[$data->format('l')];
-    $dias[] = [
-        'nome'   => $diaSemana,
-        'numero' => $data->format('d'),
-        'data'   => $data->format('Y-m-d')
-    ];
-}
-
-?>
 
 <!doctype html>
 <html lang="pt-BR">
 <head>
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="../../../src/output.css" rel="stylesheet"/>

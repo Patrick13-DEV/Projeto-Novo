@@ -1,28 +1,7 @@
-<?php
+<?php require_once __DIR__ . '/../../../service/access.php'; exigirUsuario('cliente'); ?>
+<?php require_once __DIR__ . '/../../../controllers/pages__Cliente__aplicacao__dashboard.php'; ?>
+<?php require_once __DIR__ . '/../../../includes/header.php'; ?>
 
-include_once("../../../constante.php");
-include_once("../../../service/conexao.php");
-include_once("../../../service/auth.php");
-include_once("../../../includes/header.php");
-
-
-
-$sql = "SELECT indicador, pressao FROM indicadores_saude WHERE cliente_id = :cliente_id";
-$stmt = $conexao->prepare($sql);
-$stmt->bindParam(":cliente_id", $idUser);
-$stmt->execute();
-$dadosSaude = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$sql = "SELECT agendamentos.id, agendamentos.data, agendamentos.descricao, agendamentos.status, profissionais.nome AS profissional FROM agendamentos
-        INNER JOIN profissionais ON agendamentos.profissional_id = profissionais.id
-        WHERE agendamentos.cliente_id = :cliente_id AND agendamentos.status IN ('pendente', 'confirmado')
-        ORDER BY CASE WHEN agendamentos.status = 'confirmado' THEN 0 WHEN agendamentos.status = 'pendente' THEN 1 ELSE 2 END, agendamentos.data ASC";
-$stmt = $conexao->prepare($sql);
-$stmt->bindParam(":cliente_id", $idUser);
-$stmt->execute();
-$agendamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
 
 
 <main class="flex-1 bg-sky-300">

@@ -1,10 +1,7 @@
-<?php
+<?php require_once __DIR__ . '/service/access.php'; somenteVisitantes(); ?>
+<?php require_once __DIR__ . '/controllers/index.php'; ?>
+<?php require_once __DIR__ . '/includes/header.php'; ?>
 
-include_once("./constante.php");
-include_once("./includes/header.php");
-include_once("./service/conexao.php");
-
-?>
 
 <main class="bg-sky-300 flex justify-center py-8">
     <div class="bg-white w-full max-w-[414px] md:max-w-2xl p-6 md:p-10 rounded-[2.5rem] flex flex-col items-center gap-6 shadow-lg">
