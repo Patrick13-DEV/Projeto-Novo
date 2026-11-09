@@ -1,7 +1,5 @@
 <?php
-/** Controle centralizado de acesso por sessao e perfil. */
 require_once __DIR__ . '/../constante.php';
-
 function usuarioAutenticado(): bool
 {
     return ($_SESSION['logado'] ?? false) === true
